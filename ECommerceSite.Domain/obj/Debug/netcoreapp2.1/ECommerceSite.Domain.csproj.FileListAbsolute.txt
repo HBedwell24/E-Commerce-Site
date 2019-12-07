@@ -1,0 +1,9 @@
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Domain\bin\Debug\netcoreapp2.1\ECommerceSite.Domain.deps.json
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Domain\bin\Debug\netcoreapp2.1\ECommerceSite.Domain.dll
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Domain\bin\Debug\netcoreapp2.1\ECommerceSite.Domain.pdb
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Domain\obj\Debug\netcoreapp2.1\ECommerceSite.Domain.csproj.CoreCompileInputs.cache
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Domain\obj\Debug\netcoreapp2.1\ECommerceSite.Domain.AssemblyInfoInputs.cache
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Domain\obj\Debug\netcoreapp2.1\ECommerceSite.Domain.AssemblyInfo.cs
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Domain\obj\Debug\netcoreapp2.1\ECommerceSite.Domain.dll
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Domain\obj\Debug\netcoreapp2.1\ECommerceSite.Domain.pdb
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Domain\obj\Debug\netcoreapp2.1\ECommerceSite.Domain.csprojAssemblyReference.cache

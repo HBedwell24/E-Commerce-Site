@@ -1,0 +1,14 @@
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Database\obj\Debug\netcoreapp2.1\ECommerceSite.Database.csprojAssemblyReference.cache
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Database\obj\Debug\netcoreapp2.1\ECommerceSite.Database.csproj.CoreCompileInputs.cache
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Database\obj\Debug\netcoreapp2.1\ECommerceSite.Database.AssemblyInfoInputs.cache
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Database\obj\Debug\netcoreapp2.1\ECommerceSite.Database.AssemblyInfo.cs
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Database\bin\Debug\netcoreapp2.1\ECommerceSite.Database.deps.json
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Database\bin\Debug\netcoreapp2.1\ECommerceSite.Database.dll
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Database\bin\Debug\netcoreapp2.1\ECommerceSite.Database.pdb
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Database\bin\Debug\netcoreapp2.1\ECommerceSite.Domain.dll
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Database\bin\Debug\netcoreapp2.1\ECommerceSite.Domain.pdb
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Database\obj\Debug\netcoreapp2.1\ECommerceSite.Database.csproj.CopyComplete
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Database\obj\Debug\netcoreapp2.1\ECommerceSite.Database.dll
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Database\obj\Debug\netcoreapp2.1\ECommerceSite.Database.pdb
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Database\bin\Debug\netcoreapp2.1\ECommerceSite.Database.runtimeconfig.json
+C:\Users\bagge\Documents\ECommerce\ECommerceSite\ECommerceSite.Database\bin\Debug\netcoreapp2.1\ECommerceSite.Database.runtimeconfig.dev.json
