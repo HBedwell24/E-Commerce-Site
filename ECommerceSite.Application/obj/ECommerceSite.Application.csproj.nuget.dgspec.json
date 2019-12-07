@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Application\\ECommerceSite.Application.csproj": {}
+    "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Application\\ECommerceSite.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Application\\ECommerceSite.Application.csproj": {
+    "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Application\\ECommerceSite.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Application\\ECommerceSite.Application.csproj",
+        "projectUniqueName": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Application\\ECommerceSite.Application.csproj",
         "projectName": "ECommerceSite.Application",
-        "projectPath": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Application\\ECommerceSite.Application.csproj",
+        "projectPath": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Application\\ECommerceSite.Application.csproj",
         "packagesPath": "C:\\Users\\bagge\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Application\\obj\\",
+        "outputPath": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -32,8 +32,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Database\\ECommerceSite.Database.csproj": {
-                "projectPath": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Database\\ECommerceSite.Database.csproj"
+              "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Database\\ECommerceSite.Database.csproj": {
+                "projectPath": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Database\\ECommerceSite.Database.csproj"
               }
             }
           }
@@ -62,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Database\\ECommerceSite.Database.csproj": {
+    "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Database\\ECommerceSite.Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Database\\ECommerceSite.Database.csproj",
+        "projectUniqueName": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Database\\ECommerceSite.Database.csproj",
         "projectName": "ECommerceSite.Database",
-        "projectPath": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Database\\ECommerceSite.Database.csproj",
+        "projectPath": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Database\\ECommerceSite.Database.csproj",
         "packagesPath": "C:\\Users\\bagge\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Database\\obj\\",
+        "outputPath": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Database\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -90,8 +90,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Domain\\ECommerceSite.Domain.csproj": {
-                "projectPath": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Domain\\ECommerceSite.Domain.csproj"
+              "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Domain\\ECommerceSite.Domain.csproj": {
+                "projectPath": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Domain\\ECommerceSite.Domain.csproj"
               }
             }
           }
@@ -136,14 +136,14 @@
         }
       }
     },
-    "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Domain\\ECommerceSite.Domain.csproj": {
+    "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Domain\\ECommerceSite.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Domain\\ECommerceSite.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Domain\\ECommerceSite.Domain.csproj",
         "projectName": "ECommerceSite.Domain",
-        "projectPath": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Domain\\ECommerceSite.Domain.csproj",
+        "projectPath": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Domain\\ECommerceSite.Domain.csproj",
         "packagesPath": "C:\\Users\\bagge\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Domain\\obj\\",
+        "outputPath": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

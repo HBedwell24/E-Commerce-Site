@@ -4539,11 +4539,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Application\\ECommerceSite.Application.csproj",
+      "projectUniqueName": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Application\\ECommerceSite.Application.csproj",
       "projectName": "ECommerceSite.Application",
-      "projectPath": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Application\\ECommerceSite.Application.csproj",
+      "projectPath": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Application\\ECommerceSite.Application.csproj",
       "packagesPath": "C:\\Users\\bagge\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Application\\obj\\",
+      "outputPath": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -4564,8 +4564,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Database\\ECommerceSite.Database.csproj": {
-              "projectPath": "C:\\Users\\bagge\\Documents\\ECommerce\\ECommerceSite\\ECommerceSite.Database\\ECommerceSite.Database.csproj"
+            "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Database\\ECommerceSite.Database.csproj": {
+              "projectPath": "C:\\Users\\bagge\\Documents\\E-Commerce-Site\\ECommerceSite.Database\\ECommerceSite.Database.csproj"
             }
           }
         }

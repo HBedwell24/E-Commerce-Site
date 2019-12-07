@@ -1,5 +1,6 @@
 ﻿using ECommerceSite.Database;
 using ECommerceSite.Domain.Models;
+using System.Threading.Tasks;
 
 namespace ECommerceSite.Application.Products
 {
@@ -11,14 +12,21 @@ namespace ECommerceSite.Application.Products
             _context = context;
         }
 
-        public void Do(int id, string Name, string Description)
+        public async Task Do(ProductViewModel productViewModel)
         {
             _context.Products.Add(new Product
             {
-                Id = id,
-                Name = Name,
-                Description = Description
+                Name = productViewModel.Name,
+                Description = productViewModel.Description,
+                Value = productViewModel.Value
             });
+            await _context.SaveChangesAsync();
         }
+    }
+    public class ProductViewModel
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public decimal Value { get; set; }
     }
 }
