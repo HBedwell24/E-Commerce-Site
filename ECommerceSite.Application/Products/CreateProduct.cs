@@ -2,7 +2,7 @@
 using ECommerceSite.Domain.Models;
 using System.Threading.Tasks;
 
-namespace ECommerceSite.Application.Products
+namespace ECommerceSite.Application.CreateProducts
 {
     public class CreateProduct
     {
