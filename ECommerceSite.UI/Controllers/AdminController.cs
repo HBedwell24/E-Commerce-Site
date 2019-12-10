@@ -1,6 +1,7 @@
 ﻿using ECommerceSite.Application.ProductsAdmin;
 using ECommerceSite.Database;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace ECommerceSite.UI.Controllers
 {
@@ -20,12 +21,12 @@ namespace ECommerceSite.UI.Controllers
         public IActionResult GetProduct(int id) => Ok(new GetProduct(_ctx).Do(id));
 
         [HttpPost("products")]
-        public IActionResult CreateProduct(CreateProduct.ProductViewModel productViewModel) => Ok(new CreateProduct(_ctx).Do(productViewModel));
+        public async Task<IActionResult> CreateProduct([FromBody] CreateProduct.Request request) => Ok((await new CreateProduct(_ctx).Do(request)));
 
         [HttpDelete("products/{id}")]
-        public IActionResult DeleteProduct(int id) => Ok(new DeleteProduct(_ctx).Do(id));
+        public async Task<IActionResult> DeleteProduct(int id) => Ok((await new DeleteProduct(_ctx).Do(id)));
 
         [HttpPut("products")]
-        public IActionResult UpdateProduct(UpdateProduct.ProductViewModel productViewModel) => Ok(new UpdateProduct(_ctx).Do(productViewModel));
+        public async Task<IActionResult> UpdateProduct([FromBody] UpdateProduct.Request request) => Ok((await new UpdateProduct(_ctx).Do(request)));
     }
 }
