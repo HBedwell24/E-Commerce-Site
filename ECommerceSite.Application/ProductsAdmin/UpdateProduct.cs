@@ -2,24 +2,18 @@
 using ECommerceSite.Domain.Models;
 using System.Threading.Tasks;
 
-namespace ECommerceSite.Application.CreateProducts
+namespace ECommerceSite.Application.ProductsAdmin
 {
-    public class CreateProduct
+    public class UpdateProduct
     {
         private ApplicationDbContext _context;
-        public CreateProduct(ApplicationDbContext context)
+        public UpdateProduct(ApplicationDbContext context)
         {
             _context = context;
         }
 
         public async Task Do(ProductViewModel productViewModel)
         {
-            _context.Products.Add(new Product
-            {
-                Name = productViewModel.Name,
-                Description = productViewModel.Description,
-                Value = productViewModel.Value
-            });
             await _context.SaveChangesAsync();
         }
 
