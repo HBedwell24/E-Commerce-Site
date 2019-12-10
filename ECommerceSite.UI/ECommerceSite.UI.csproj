@@ -14,4 +14,8 @@
     <ProjectReference Include="..\ECommerceSite.Database\ECommerceSite.Database.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\" />
+  </ItemGroup>
+
 </Project>
