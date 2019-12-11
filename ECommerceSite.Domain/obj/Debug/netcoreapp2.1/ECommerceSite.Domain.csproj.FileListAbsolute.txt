@@ -15,3 +15,4 @@ C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Domain\obj\Debug\netcorea
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Domain\obj\Debug\netcoreapp2.1\ECommerceSite.Domain.AssemblyInfo.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Domain\obj\Debug\netcoreapp2.1\ECommerceSite.Domain.dll
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Domain\obj\Debug\netcoreapp2.1\ECommerceSite.Domain.pdb
+C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Domain\obj\Debug\netcoreapp2.1\ECommerceSite.Domain.csprojAssemblyReference.cache
