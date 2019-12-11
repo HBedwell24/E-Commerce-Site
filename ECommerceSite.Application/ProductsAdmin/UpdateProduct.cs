@@ -1,5 +1,4 @@
 ﻿using ECommerceSite.Database;
-using ECommerceSite.Domain.Models;
 using System.Linq;
 using System.Threading.Tasks;
 

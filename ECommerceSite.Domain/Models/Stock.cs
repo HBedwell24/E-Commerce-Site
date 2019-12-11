@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ECommerceSite.Domain.Models
+﻿namespace ECommerceSite.Domain.Models
 {
     public class Stock
     {

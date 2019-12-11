@@ -1,5 +1,4 @@
 ﻿using ECommerceSite.Database;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace ECommerceSite.Application.ProductsAdmin
