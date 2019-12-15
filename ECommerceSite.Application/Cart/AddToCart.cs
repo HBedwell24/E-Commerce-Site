@@ -1,6 +1,8 @@
 ﻿using ECommerceSite.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ECommerceSite.Application.Cart
 {
@@ -21,13 +23,29 @@ namespace ECommerceSite.Application.Cart
 
         public void Do(Request request)
         {
-            var cartProduct = new CartProduct
-            {
-                StockId = request.StockId,
-                Quantity = request.Quantity
-            };
+            var cartList = new List<CartProduct>();
+            var stringObject = _session.GetString("cart");
 
-            var stringObject = JsonConvert.SerializeObject(cartProduct);
+            if (!string.IsNullOrEmpty(stringObject))
+            {
+                cartList = JsonConvert.DeserializeObject<List<CartProduct>>(stringObject);
+            }
+
+            if (cartList.Any(x => x.StockId == request.StockId))
+            {
+                cartList.Find(x => x.StockId == request.StockId).Quantity += request.Quantity;
+            }
+
+            else
+            {
+                cartList.Add(new CartProduct
+                {
+                    StockId = request.StockId,
+                    Quantity = request.Quantity
+                });
+            }
+
+            stringObject = JsonConvert.SerializeObject(cartList);
             _session.SetString("cart", stringObject);
         }
     }

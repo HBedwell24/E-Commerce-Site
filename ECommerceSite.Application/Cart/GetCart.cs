@@ -3,6 +3,7 @@ using ECommerceSite.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ECommerceSite.Application.Cart
@@ -26,23 +27,27 @@ namespace ECommerceSite.Application.Cart
             public int StockId { get; set; }
         }
 
-        public Response Do()
+        public IEnumerable<Response> Do()
         {
             var stringObject = _session.GetString("cart");
+            if (string.IsNullOrEmpty(stringObject))
+            {
+                return new List<Response>();
+            }
 
-            var cartProduct = JsonConvert.DeserializeObject<CartProduct>(stringObject);
+            var cartList = JsonConvert.DeserializeObject<List<CartProduct>>(stringObject);
 
             var response = _ctx.Stock
                 .Include(x => x.Product)
-                .Where(x => x.Id == cartProduct.StockId)
+                .Where(x => cartList.Any(y => y.StockId == x.Id))
                 .Select(x => new Response
                 {
                     Name = x.Product.Name,
                     Value = $"${x.Product.Value.ToString("N2")}",
                     StockId = x.Id,
-                    Quantity = cartProduct.Quantity
+                    Quantity = cartList.FirstOrDefault(y => y.StockId == x.Id).Quantity
                 })
-                .FirstOrDefault();
+                .ToList();
 
             return response;
         }

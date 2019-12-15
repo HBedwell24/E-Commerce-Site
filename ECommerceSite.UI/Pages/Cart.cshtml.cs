@@ -2,6 +2,7 @@ using ECommerceSite.Application.Cart;
 using ECommerceSite.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
 
 namespace ECommerceSite.UI.Pages
 {
@@ -14,7 +15,7 @@ namespace ECommerceSite.UI.Pages
             _ctx = ctx;
         }
 
-        public GetCart.Response Cart { get; set; }
+        public IEnumerable<GetCart.Response> Cart { get; set; }
 
         public IActionResult OnGet()
         {
