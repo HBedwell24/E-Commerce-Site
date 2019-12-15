@@ -1,3 +1,4 @@
+using ECommerceSite.Application.Cart;
 using ECommerceSite.Application.Products;
 using ECommerceSite.Database;
 using Microsoft.AspNetCore.Http;
@@ -9,16 +10,15 @@ namespace ECommerceSite.UI.Pages
     public class ProductModel : PageModel
     {
         private ApplicationDbContext _ctx;
+
         public ProductModel(ApplicationDbContext ctx)
         {
             _ctx = ctx;
         }
+
         [BindProperty]
-        public Test ProductTest { get; set; }
-        public class Test
-        {
-            public string Id { get; set; }
-        }
+        public AddToCart.Request CartViewModel { get; set; }
+        
         public GetProduct.ProductViewModel Product { get; set; }
         public IActionResult OnGet(string name)
         {
@@ -30,9 +30,8 @@ namespace ECommerceSite.UI.Pages
         }
         public IActionResult OnPost()
         {
-            var current_id = HttpContext.Session.GetString("id");
-            HttpContext.Session.SetString("id", ProductTest.Id);
-            return RedirectToPage("Index");
+            new AddToCart(HttpContext.Session).Do(CartViewModel);
+            return RedirectToPage("Cart");
         }
     }
 }

@@ -35,20 +35,20 @@
                         id: x.id,
                         description: x.description,
                         quantity: x.quantity,
-                        productId: x.selectedProduct.id
+                        productId: this.selectedProduct.id
                     };
                 })
             })
-                .then(res => {
-                    console.log(res);
-                    this.selectedProduct.stock.splice(index, 1);
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-                .then(() => {
-                    this.loading = false;
-                });
+            .then(res => {
+                 console.log(res);
+                 this.selectedProduct.stock.splice(index, 1);
+            })
+            .catch(err => {
+                 console.log(err);
+            })
+            .then(() => {
+                 this.loading = false;
+            });
         },
         deleteStock(id, index) {
             this.loading = true;
