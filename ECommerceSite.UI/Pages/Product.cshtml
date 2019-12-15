@@ -13,7 +13,7 @@
             <select asp-for="CartViewModel.StockId">
                 @foreach (var s in Model.Product.Stock)
                 {
-                    <option value="s.Id">@s.Description</option>
+                    <option value="@s.Id">@s.Description</option>
                 }
             </select>
             <label>Quantity:</label>

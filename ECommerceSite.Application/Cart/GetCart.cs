@@ -29,6 +29,7 @@ namespace ECommerceSite.Application.Cart
         public Response Do()
         {
             var stringObject = _session.GetString("cart");
+
             var cartProduct = JsonConvert.DeserializeObject<CartProduct>(stringObject);
 
             var response = _ctx.Stock
