@@ -81,3 +81,5 @@ C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\Stock.g.cshtml.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Product.g.cshtml.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Cart.g.cshtml.cs
+C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Components\Cart\Default.g.cshtml.cs
+C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Components\Cart\Small.g.cshtml.cs
