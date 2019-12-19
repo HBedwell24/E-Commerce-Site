@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ECommerceSite.Domain.Models;
+using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 
@@ -31,7 +32,6 @@ namespace ECommerceSite.Application.Cart
 
             [Required]
             public string Address1 { get; set; }
-
             public string Address2 { get; set; }
 
             [Required]
@@ -43,7 +43,18 @@ namespace ECommerceSite.Application.Cart
 
         public void Do(Request request)
         {
-            var stringObject = JsonConvert.SerializeObject(request);
+            var customerInformation = new CustomerInformation
+            {
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                Email = request.Email,
+                PhoneNumber = request.PhoneNumber,
+                Address1 = request.Address1,
+                Address2 = request.Address2,
+                City = request.City,
+                PostCode = request.PostCode
+            };
+            var stringObject = JsonConvert.SerializeObject(customerInformation);
             _session.SetString("customer-info", stringObject);
         }
     }
