@@ -1,5 +1,4 @@
 using ECommerceSite.Application.Cart;
-using ECommerceSite.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 

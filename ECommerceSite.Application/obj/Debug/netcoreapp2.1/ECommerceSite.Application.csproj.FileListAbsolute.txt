@@ -17,8 +17,10 @@ C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\bin\Debug\net
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\bin\Debug\netcoreapp2.1\ECommerceSite.Application.pdb
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\bin\Debug\netcoreapp2.1\ECommerceSite.Database.dll
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\bin\Debug\netcoreapp2.1\ECommerceSite.Domain.dll
+C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\bin\Debug\netcoreapp2.1\Newtonsoft.Json.dll
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\bin\Debug\netcoreapp2.1\ECommerceSite.Database.pdb
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\bin\Debug\netcoreapp2.1\ECommerceSite.Domain.pdb
+C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\bin\Debug\netcoreapp2.1\Newtonsoft.Json.xml
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\obj\Debug\netcoreapp2.1\ECommerceSite.Application.csprojAssemblyReference.cache
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\obj\Debug\netcoreapp2.1\ECommerceSite.Application.csproj.CoreCompileInputs.cache
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\obj\Debug\netcoreapp2.1\ECommerceSite.Application.AssemblyInfoInputs.cache
@@ -26,5 +28,3 @@ C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\obj\Debug\net
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\obj\Debug\netcoreapp2.1\ECommerceSite.Application.csproj.CopyComplete
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\obj\Debug\netcoreapp2.1\ECommerceSite.Application.dll
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\obj\Debug\netcoreapp2.1\ECommerceSite.Application.pdb
-C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\bin\Debug\netcoreapp2.1\Newtonsoft.Json.dll
-C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.Application\bin\Debug\netcoreapp2.1\Newtonsoft.Json.xml
