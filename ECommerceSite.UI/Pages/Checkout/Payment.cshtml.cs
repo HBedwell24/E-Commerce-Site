@@ -1,9 +1,12 @@
 using ECommerceSite.Application.Cart;
+using ECommerceSite.Application.Orders;
 using ECommerceSite.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using Stripe;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ECommerceSite.UI.Pages.Checkout
 {
@@ -29,12 +32,12 @@ namespace ECommerceSite.UI.Pages.Checkout
             return Page();
         }
 
-        public IActionResult OnPost(string stripeEmail, string stripeToken)
+        public async Task<IActionResult> OnPost(string stripeEmail, string stripeToken)
         {
             var customers = new CustomerService();
             var charges = new ChargeService();
 
-            var CartOrder = new GetOrder(HttpContext.Session, _ctx).Do();
+            var CartOrder = new Application.Cart.GetOrder(HttpContext.Session, _ctx).Do();
 
             var customer = customers.Create(new CustomerCreateOptions
             {
@@ -48,6 +51,26 @@ namespace ECommerceSite.UI.Pages.Checkout
                 Description = "Shop Purchase",
                 Currency = "usd",
                 Customer = customer.Id
+            });
+
+            await new CreateOrder(_ctx).Do(new CreateOrder.Request
+            {
+                StripeReference = charge.Id,
+
+                FirstName = CartOrder.CustomerInformation.FirstName,
+                LastName = CartOrder.CustomerInformation.LastName,
+                Email = CartOrder.CustomerInformation.Email,
+                PhoneNumber = CartOrder.CustomerInformation.PhoneNumber,
+                Address1 = CartOrder.CustomerInformation.Address1,
+                Address2 = CartOrder.CustomerInformation.Address2,
+                City = CartOrder.CustomerInformation.City,
+                PostCode = CartOrder.CustomerInformation.PostCode,
+
+                Stocks = CartOrder.Products.Select(x => new CreateOrder.Stock
+                {
+                    StockId = x.StockId,
+                    Quantity = x.Quantity
+                }).ToList()
             });
 
             return RedirectToPage("/Index");

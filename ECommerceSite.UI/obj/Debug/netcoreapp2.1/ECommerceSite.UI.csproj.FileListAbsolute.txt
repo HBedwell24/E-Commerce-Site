@@ -85,3 +85,4 @@ C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\ECommerceSite.UI.csproj.CopyComplete
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\ECommerceSite.UI.dll
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\ECommerceSite.UI.pdb
+C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Order.g.cshtml.cs
