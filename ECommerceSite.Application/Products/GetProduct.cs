@@ -1,7 +1,9 @@
 ﻿using ECommerceSite.Database;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ECommerceSite.Application.Products
 {
@@ -14,23 +16,40 @@ namespace ECommerceSite.Application.Products
             _ctx = ctx;
         }
 
-        public ProductViewModel Do(string name) =>
-            _ctx.Products
-            .Include(x => x.Stock)
-            .Where(x => x.Name == name)
-            .Select(x => new ProductViewModel
+        public async Task<ProductViewModel> Do(string name)
+        {
+            var stocksOnHold = _ctx.StocksOnHold.Where(x => x.ExpirationDate < DateTime.Now).ToList();
+
+            if (stocksOnHold.Count > 0)
             {
-                Name = x.Name,
-                Description = x.Description,
-                Value = $"${x.Value.ToString("N2")}",
-                Stock = x.Stock.Select(y => new StockViewModel
+                var stockToReturn = _ctx.Stock.Where(x => stocksOnHold.Any(y => y.StockId == x.Id)).ToList();
+
+                foreach(var stock in stockToReturn)
                 {
-                    Id = y.Id,
-                    Description = y.Description,
-                    InStock = y.Quantity > 0
+                    stock.Quantity = stock.Quantity + stocksOnHold.FirstOrDefault(x => x.StockId == stock.Id).Quantity;
+                }
+
+                _ctx.StocksOnHold.RemoveRange(stocksOnHold);
+                await _ctx.SaveChangesAsync();
+            }
+
+            return _ctx.Products
+                .Include(x => x.Stock)
+                .Where(x => x.Name == name)
+                .Select(x => new ProductViewModel
+                {
+                    Name = x.Name,
+                    Description = x.Description,
+                    Value = $"${x.Value.ToString("N2")}",
+                    Stock = x.Stock.Select(y => new StockViewModel
+                    {
+                        Id = y.Id,
+                        Description = y.Description,
+                        InStock = y.Quantity > 0
+                    })
                 })
-            })
-            .FirstOrDefault();
+                .FirstOrDefault();
+        }
 
         public class ProductViewModel
         {
