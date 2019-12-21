@@ -6,9 +6,8 @@ namespace ECommerceSite.Database
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {
-
-        }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
+            : base(options) { }
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Stock> Stock { get; set; }
