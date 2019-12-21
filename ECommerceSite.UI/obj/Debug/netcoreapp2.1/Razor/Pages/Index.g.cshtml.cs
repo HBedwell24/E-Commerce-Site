@@ -18,8 +18,13 @@ using ECommerceSite.UI;
 
 #line default
 #line hidden
+#line 2 "C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\Pages\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Authorization;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d87f3e8a3b583f217637bed3c379f9f2424d2e99", @"/Pages/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"44f6228678097f8831005f3411fd7b3de8e5f9d1", @"/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a2819ddb2a739a1b9238b2313a494784a062a555", @"/Pages/_ViewImports.cshtml")]
     public class Pages_Index : global::Microsoft.AspNetCore.Mvc.RazorPages.Page
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-page", "Product", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -65,7 +70,7 @@ using ECommerceSite.UI;
             WriteLiteral("            ");
             EndContext();
             BeginContext(154, 136, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e5de6bfbc7a74551b1268c3617303aa0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ba7183af52544b12836b1222a6788ca6", async() => {
                 BeginContext(219, 18, true);
                 WriteLiteral("\r\n                ");
                 EndContext();
