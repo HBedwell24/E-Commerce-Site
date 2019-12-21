@@ -28,6 +28,7 @@ namespace ECommerceSite.Application.Cart
 
         public async Task<bool> Do(Request request)
         {
+            var stockOnHold = _ctx.StocksOnHold.Where(x => x.SessionId == _session.Id).ToList();
             var stockToHold = _ctx.Stock.Where(x => x.Id == request.StockId).FirstOrDefault();
 
             if (stockToHold.Quantity < request.Quantity)
@@ -38,11 +39,17 @@ namespace ECommerceSite.Application.Cart
             _ctx.StocksOnHold.Add(new StockOnHold
             {
                 StockId = stockToHold.Id,
+                SessionId = _session.Id,
                 Quantity = request.Quantity,
                 ExpirationDate = DateTime.Now.AddMinutes(20)
             });
 
             stockToHold.Quantity = stockToHold.Quantity - request.Quantity;
+
+            foreach (var stock in stockOnHold)
+            {
+                stock.ExpirationDate = DateTime.Now.AddMinutes(20);
+            }
 
             await _ctx.SaveChangesAsync();
 
