@@ -1,3 +1,4 @@
+using ECommerceSite.Application.UsersAdmin;
 using ECommerceSite.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -50,7 +51,11 @@ namespace ECommerceSite.UI
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("Admin", policy => policy.RequireClaim("Role", "Admin"));
-                options.AddPolicy("Manager", policy => policy.RequireClaim("Role", "Manager"));
+                //options.AddPolicy("Manager", policy => policy.RequireClaim("Role", "Manager"));
+                options.AddPolicy("Manager", policy => policy
+                    .RequireAssertion(context =>
+                        context.User.HasClaim("Role", "Manager")
+                        || context.User.HasClaim("Role", "Admin")));
             });
 
             services
@@ -58,6 +63,7 @@ namespace ECommerceSite.UI
                 .AddRazorPagesOptions(options =>
                 {
                     options.Conventions.AuthorizeFolder("/Admin");
+                    options.Conventions.AuthorizePage("/Admin/ConfigureUsers", "Admin");
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -68,6 +74,8 @@ namespace ECommerceSite.UI
             });
 
             StripeConfiguration.ApiKey = _config.GetSection("Stripe")["SecretKey"];
+
+            services.AddTransient<CreateUser>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
