@@ -38,6 +38,7 @@
             </div>
 
             <div class="navbar-end">
+                <vc:cart view="Small"></vc:cart>
                 @if (User.Identity.IsAuthenticated)
                 {
                     <a class="navbar-item" asp-controller="Account" asp-action="Logout">Sign Out</a>

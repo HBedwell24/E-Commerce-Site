@@ -13,16 +13,16 @@
                         <a asp-page="Product" asp-route-name="@p.Name.Replace(" ", "-")">
                             <div class="card">
                                 <div class="card-image">
-                                    <figure class="image is-4by3">
-                                        <img src="~/images/200sx.png" />
+                                    <figure class="image">
+                                        <img src="~/images/volkswagen.jpg" />
                                     </figure>
                                 </div>
-                                <div class="card-content">
-                                    <p class="title is-size-5">
-                                        @p.Name - @p.Value
+                                <div class="card-content has-text-centered">
+                                    <p class="title is-4">
+                                        @p.Name
                                     </p>
-                                    <p class="subtitle">
-                                        @p.Description
+                                    <p class="subtitle is-6">
+                                        @p.Value
                                     </p>
 
                                     <div class="content">
@@ -36,4 +36,3 @@
             }
         </div>
     </div>
-@await Component.InvokeAsync("Cart")
