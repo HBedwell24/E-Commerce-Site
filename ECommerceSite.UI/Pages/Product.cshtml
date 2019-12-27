@@ -3,73 +3,74 @@
 @{
 }
 
-<div class="hero">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-6">
-                    <figure class="image">
-                        <img src="~/images/shirts.jpg" />
-                    </figure>
-                </div>
-                <div class="column is-6">
-                    <section class="content">                       
+    <div class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-6">
+                        <figure class="image">
+                            <img src="~/images/shirts.jpg" />
+                        </figure>
+                    </div>
+                    <div class="column is-6">
+                        <section class="content">
                             <p class="title">@Model.Product.Name</p>
                             <p class="subtitle">@Model.Product.Value</p>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                @Model.Product.Description
                             </p>
-                        <footer>
-                            <form method="post">
+                            <footer>
+                                <form method="post">
 
-                                <div class="field-is-horizontal">
-                                    <div class="field-label is-normal">
-                                        <label class="label has-text-left">Size</label>
-                                    </div>
-                                    <div class="field-body">
-                                        <div class="field is-narrow">
-                                            <div class="control">
-                                                <div class="select is-fullwidth">
-                                                    <select asp-for="CartViewModel.StockId">
-                                                        @foreach (var s in Model.Product.Stock)
-                                                        {
-                                                            <option value="@s.Id">@s.Description</option>
-                                                        }
-                                                    </select>
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">Size</label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field is-narrow">
+                                                <div class="control">
+                                                    <div class="select is-fullwidth">
+                                                        <select asp-for="CartViewModel.StockId">
+                                                            @foreach (var s in Model.Product.Stock)
+                                                            {
+                                                                <option value="@s.Id">@s.Description</option>
+                                                            }
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="field-is-horizontal">
-                                    <div class="field-label is-normal">
-                                        <label class="label has-text-left">Quantity</label>
-                                    </div>
-                                    <div class="field-body">
-                                        <div class="field is-narrow">
-                                            <div class="control">
-                                                <input class="input" asp-for="CartViewModel.Quantity" value="1" />
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">Quantity</label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field is-narrow">
+                                                <div class="control">
+                                                    <input class="input" asp-for="CartViewModel.Quantity" value="1" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="field-is-horizontal">
-                                    <div class="field-label is-normal">
-                                    </div>
-                                    <div class="field-body">
-                                        <div class="field is-narrow">
-                                            <div class="control">
-                                                <button class="button is-success" type="submit">Add to Cart</button>
+
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field is-narrow">
+                                                <div class="control">
+                                                    <button class="button is-success" type="submit">Submit</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </form>
-                        </footer>
-                    </section>
+                                </form>
+                            </footer>
+                        </section>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
