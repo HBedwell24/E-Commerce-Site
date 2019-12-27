@@ -27,14 +27,14 @@ namespace ECommerceSite.UI.Pages.Checkout
                 {
                     CustomerInformation = new AddCustomerInformation.Request
                     {
-                        FirstName = "A",
-                        LastName = "A",
-                        Email = "A@a.com",
-                        PhoneNumber = "A",
-                        Address1 = "A",
-                        Address2 = "A",
-                        City = "A",
-                        PostCode = "A",
+                        FirstName = "John",
+                        LastName = "Doe",
+                        Email = "jdoe@gmail.com",
+                        PhoneNumber = "(000) 000-0000",
+                        Address1 = "1234 Bangalore Road",
+                        Address2 = "",
+                        City = "Bangalore",
+                        PostCode = "12345",
                     };
                 }
                 return Page();
