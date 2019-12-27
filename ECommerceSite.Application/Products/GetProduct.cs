@@ -45,7 +45,7 @@ namespace ECommerceSite.Application.Products
                     {
                         Id = y.Id,
                         Description = y.Description,
-                        InStock = y.Quantity > 0
+                        Quantity = y.Quantity
                     })
                 })
                 .FirstOrDefault();
@@ -63,7 +63,7 @@ namespace ECommerceSite.Application.Products
         {
             public int Id { get; set; }
             public string Description { get; set; }
-            public bool InStock { get; set; }
+            public int Quantity { get; set; }
         }
     }
 }
