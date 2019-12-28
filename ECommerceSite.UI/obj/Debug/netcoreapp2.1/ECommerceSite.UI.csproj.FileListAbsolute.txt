@@ -88,3 +88,4 @@ C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Order.g.cshtml.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Accounts\Login.g.cshtml.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\ConfigureUsers.g.cshtml.cs
+C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\OrderManagement.g.cshtml.cs

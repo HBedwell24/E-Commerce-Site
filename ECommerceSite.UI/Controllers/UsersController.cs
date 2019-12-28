@@ -1,5 +1,4 @@
 ﻿using ECommerceSite.Application.UsersAdmin;
-using ECommerceSite.Database;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

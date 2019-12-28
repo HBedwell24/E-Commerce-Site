@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ECommerceSite.UI.Pages.Admin
+namespace ECommerceSite.UI.Pages
 {
-    public class ConfigureUsersModel : PageModel
+    public class OrderManagementModel : PageModel
     {
         public void OnGet()
         {
