@@ -24,3 +24,12 @@
 .align-self-center {
     align-self: center;
 }
+
+.centered-td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.centered-th {
+    text-align: center;
+}
