@@ -3,79 +3,85 @@
 @{
 }
 
-<div class="container">
-    <div class="columns is-centered">
-        <div class="column is-half">
-            @if (Model.Cart != null)
-            {
-                <table class="table is-fullwidth">
-                    <tr>
-                        <th style="text-align: center;"></th>
-                        <th style="text-align: center;">Product ID</th>
-                        <th style="text-align: center;">Product Name</th>
-                        <th style="text-align: center;">Value</th>
-                        <th style="text-align: center;">Quantity</th>
-                        <th style="text-align: center;"></th>
-                        <th style="text-align: center;"></th>
-                    </tr>
-                    @foreach (var product in Model.Cart)
+<div id="flow">
+    <span class="flow-1"></span>
+    <span class="flow-2"></span>
+    <span class="flow-3"></span>
+</div>
+
+<section class="hero is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column box">
+                    @if (Model.Cart != null)
                     {
-                        <tr id="product-@product.StockId">
-                            <td>
-                                <figure class="image is-64x64">
-                                    <img src="~/images/shirts.jpg" />
-                                </figure>
-                            </td>
-                            <td style="text-align: center; vertical-align: middle;">@product.StockId</td>
-                            <td style="text-align: center; vertical-align: middle;">@product.Name</td>
-                            <td style="text-align: center; vertical-align: middle;">@product.Value</td>
-                            <td style="text-align: center; vertical-align: middle;">
-                                <div class="columns has-text-centered is-mobile is-multiline">
-                                    <div class="column is-4">
-                                        <button class="button" type="button"
-                                                onclick="removeOneFromCart(event)"
-                                                data-stock-id="@product.StockId">
-                                            -
-                                        </button>
-                                    </div>
-                                    <div class="column is-4 align-self-center" id="stock-@product.StockId">
-                                        @product.Quantity
-                                    </div>
-                                    <div class="column is-4">
-                                        <button class="button" type="button"
-                                                onclick="addOneToCart(event)"
-                                                data-stock-id="@product.StockId">
-                                            +
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td style="text-align: center; vertical-align: middle;">
-                                <button class="button is-danger fa fa-trash" type="button"
-                                        onclick="removeAllFromCart(event)"
-                                        data-stock-id="@product.StockId"></button>
-                            </td>
-                        </tr>
+                        <table class="table is-fullwidth">
+                            <tr>
+                                <th style="text-align: center;"></th>
+                                <th style="text-align: center;">Product ID</th>
+                                <th style="text-align: center;">Product Name</th>
+                                <th style="text-align: center;">Value</th>
+                                <th style="text-align: center;">Quantity</th>
+                                <th style="text-align: center;"></th>
+                                <th style="text-align: center;"></th>
+                            </tr>
+                            @foreach (var product in Model.Cart)
+                            {
+                                <tr id="product-@product.StockId">
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <img src="~/images/shirts.jpg" class="image is-64x64" />
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">@product.StockId</td>
+                                    <td style="text-align: center; vertical-align: middle;">@product.Name</td>
+                                    <td style="text-align: center; vertical-align: middle;">@product.Value</td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <div class="columns has-text-centered is-mobile is-multiline">
+                                            <div class="column is-4">
+                                                <button class="button" type="button"
+                                                        onclick="removeOneFromCart(event)"
+                                                        data-stock-id="@product.StockId">
+                                                    -
+                                                </button>
+                                            </div>
+                                            <div class="column is-4 align-self-center" id="stock-@product.StockId">
+                                                @product.Quantity
+                                            </div>
+                                            <div class="column is-4">
+                                                <button class="button" type="button"
+                                                        onclick="addOneToCart(event)"
+                                                        data-stock-id="@product.StockId">
+                                                    +
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <button class="button is-danger fa fa-trash" type="button"
+                                                onclick="removeAllFromCart(event)"
+                                                data-stock-id="@product.StockId"></button>
+                                    </td>
+                                </tr>
+                            }
+                        </table>
                     }
-                </table>
-            }
-            else
-            {
-                <p class="subtitle">Your cart is empty.</p>
-            }
-
-
-            <div class="has-text-right">
-                <a asp-page="/Index" class="button is-text">Resume Shopping</a>
-                <a asp-page="/Checkout/CustomerInformation" class="button is-success">Checkout</a>
+                    else
+                    {
+                        <p class="subtitle">Your cart is empty.</p>
+                    }
+                    <div class="has-text-right">
+                        <a asp-page="/Index" class="button is-text">Resume Shopping</a>
+                        <a asp-page="/Checkout/CustomerInformation" class="button is-info">Checkout</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>   
-</div>
+    </div>
+</section>
 
 @section scripts {
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>       
+    <script>
         var addOneToCart = function (e) {
             var stockId = e.target.dataset.stockId;
             axios.post("/Cart/AddOne/" + stockId)
