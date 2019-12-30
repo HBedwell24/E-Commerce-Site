@@ -3,32 +3,39 @@
 @{
 }
 
-<div class="columns">
-    <div class="column is-6">
-        <p class="title">Payment</p>
-        <form method="post" id="payment-form">
-            <div class="field">           
-                <div class="form-row">
-                    <div id="card-element">
-                        <!-- A Stripe Element will be inserted here. -->
-                    </div>
-                    <!-- Used to display Element errors. -->
-                    <div id="card-errors" role="alert"></div>
+<section class="hero is-fullheight">
+    <div class="hero-body">
+        <div class="container box">
+            <div class="columns">
+                <div class="column is-6">
+                    <p class="title has-text-centered">Billing Information (continued)</p>
+                    <form method="post" id="payment-form">
+                        <div class="field">
+                            <div class="form-row">
+                                <div id="card-element">
+                                    <!-- A Stripe Element will be inserted here. -->
+                                </div>
+                                <!-- Used to display Element errors. -->
+                                <div id="card-errors" role="alert"></div>
+                            </div>
+                        </div>
+                        <div class="field has-text-centered">
+                            <button class="button is-info">Submit Payment</button>
+                        </div>
+                    </form>
+                </div>
+
+
+                <div class="column is-6">
+                    <vc:cart view="Default"></vc:cart>
                 </div>
             </div>
-            <div class="field has-text-right">
-                <button class="button is-success">Submit Payment</button>
-            </div>           
-        </form>
+        </div>
     </div>
-
-
-    <div class="column is-6">
-        <vc:cart view="Default"></vc:cart>
-    </div>
-</div>
+</section>
 
 @section scripts {
+
     <script src="https://js.stripe.com/v3/"></script>
     <script>
         var stripe = Stripe('@Model.PublicKey');
@@ -98,5 +105,5 @@
           // Submit the form
           form.submit();
         }
-    </script>
-}
+                    </script>
+                }

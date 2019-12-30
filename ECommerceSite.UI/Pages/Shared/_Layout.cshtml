@@ -19,7 +19,6 @@
     </environment>
 </head>
 <body>
-
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
@@ -43,7 +42,9 @@
                 </div>
 
                 <div class="navbar-end">
-                    <vc:cart view="Small"></vc:cart>
+                    <a class="navbar-item" asp-page="/Cart">
+                            Cart <vc:cart view="Small"></vc:cart>
+                    </a>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <a class="navbar-item" asp-controller="Account" asp-action="Logout">Sign Out</a>
