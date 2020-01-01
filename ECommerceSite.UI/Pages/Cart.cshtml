@@ -57,10 +57,11 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td id="stockTotal" style="text-align: center; vertical-align: middle;">@product.TotalValue</td>
+                                        <td id="stockTotal-@product.StockId" style="text-align: center; vertical-align: middle;">@product.TotalValue</td>
                                         <td style="text-align: center; vertical-align: middle;">
                                             <button class="button is-danger fa fa-trash" type="button"
                                                     onclick="removeAllFromCart(event)"
+                                                    data-stock-value="@product.Value" 
                                                     data-stock-id="@product.StockId"></button>
                                         </td>
                                     </tr>
@@ -119,10 +120,10 @@
                     var el = document.getElementById(id);
 
                     var quantity = parseInt(el.innerText);
-                    el.innerText = (quantity + 1);
+                    quantity = (quantity + 1);
+                    el.innerText = quantity;  
 
-                    var e2 = document.getElementById("stockTotal");
-                     
+                    updateTotalStockValue(e, quantity, stockId);
                 })
                 .catch(err => {
                     alert(err.error);
@@ -137,7 +138,10 @@
                     var el = document.getElementById(id);
 
                     var quantity = parseInt(el.innerText);
-                    el.innerText = (quantity - 1);
+                    quantity = (quantity - 1);
+                    el.innerText = quantity;
+
+                    updateTotalStockValue(e, quantity, stockId);
                 })
                 .catch(err => {
                     alert(err.error);
@@ -155,6 +159,18 @@
                 .catch(err => {
                     alert(err.error);
                 });
+            }
+
+        var updateTotalStockValue = function (e, quantity, stockId) {
+
+            var stockValue = e.target.dataset.stockValue;
+            console.log(stockValue);
+            var total = (quantity * stockValue).toString();
+            console.log(total);
+
+            var e2 = document.getElementById("stockTotal-" + stockId);
+            e2.innerText = total;
         }
+
     </script>
 }
