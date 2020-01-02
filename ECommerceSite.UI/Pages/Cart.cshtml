@@ -22,53 +22,57 @@
                                     <th style="text-align: center;"></th>
                                     <th style="text-align: center;">Product ID</th>
                                     <th style="text-align: center;">Product Name</th>
+                                    <th style="text-align: center;">Price</th>
                                     <th style="text-align: center;">Quantity</th>
-                                    <th style="text-align: center;">Value</th>
+                                    <th style="text-align: center;">Total Value</th>
                                     <th style="text-align: center;"></th>
                                 </tr>
                             </thead> 
                             <tbody>
                                 @foreach (var product in Model.Cart)
                                 {
-                                    <tr id="product-@product.StockId">
-                                        <td style="text-align: center; vertical-align: middle;">
-                                            <img src="~/images/shirts.jpg" class="image is-64x64" />
-                                        </td>
-                                        <td style="text-align: center; vertical-align: middle;">@product.StockId</td>
-                                        <td style="text-align: center; vertical-align: middle;">@product.Name</td>
-                                        <td style="text-align: center; vertical-align: middle;">
-                                            <div class="columns has-text-centered is-mobile is-multiline">
-                                                <div class="column is-4">
-                                                    <button class="button" type="button"
-                                                            onclick="removeOneFromCart(event)"
-                                                            data-stock-id="@product.StockId">
-                                                        -
-                                                    </button>
-                                                </div>
-                                                <div class="column is-4 align-self-center" id="stock-@product.StockId">
-                                                    @product.Quantity
-                                                </div>
-                                                <div class="column is-4">
-                                                    <button class="button" type="button"
-                                                            onclick="addOneToCart(event)"
-                                                            data-stock-id="@product.StockId">
-                                                        +
-                                                    </button>
-                                                </div>
+                                <tr id="product-@product.StockId">
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <img src="~/images/shirts.jpg" class="image is-64x64" />
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">@product.StockId</td>
+                                    <td style="text-align: center; vertical-align: middle;">@product.Name</td>
+                                    <td style="text-align: center; vertical-align: middle;">@product.Value</td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <div class="columns has-text-centered is-mobile is-multiline">
+                                            <div class="column is-4">
+                                                <button class="button" type="button"
+                                                        data-stock-id="@product.StockId"
+                                                        data-value="@product.RealValue"
+                                                        onclick="removeOneFromCart(event, this.dataset.value)">
+                                                    -
+                                                </button>
                                             </div>
-                                        </td>
-                                        <td id="stockTotal-@product.StockId" style="text-align: center; vertical-align: middle;">@product.TotalValue</td>
-                                        <td style="text-align: center; vertical-align: middle;">
-                                            <button class="button is-danger fa fa-trash" type="button"
-                                                    onclick="removeAllFromCart(event)"
-                                                    data-stock-value="@product.Value" 
-                                                    data-stock-id="@product.StockId"></button>
-                                        </td>
-                                    </tr>
+                                            <div class="column is-4 align-self-center" id="stock-@product.StockId">
+                                                @product.Quantity
+                                            </div>
+                                            <div class="column is-4">
+                                                <button class="button" type="button"
+                                                        data-stock-id="@product.StockId"
+                                                        data-value="@product.RealValue"
+                                                        onclick="addOneToCart(event, this.dataset.value)">
+                                                    +
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td id="stockTotal-@product.StockId" style="text-align: center; vertical-align: middle;">@product.TotalValue</td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <button class="button is-danger fa fa-trash" type="button"
+                                                onclick="removeAllFromCart(event)"
+                                                data-stock-id="@product.StockId"></button>
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
                             <tfoot>
                                 <tr>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -80,11 +84,13 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
+                                    <td></td>
                                     <td style="text-align: center; vertical-align: middle;">Shipping</td>
                                     <td style="text-align: center; vertical-align: middle;">???</td>
                                     <td></td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -112,7 +118,7 @@
 @section scripts {
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        var addOneToCart = function (e) {
+        var addOneToCart = function (e, realValue) {
             var stockId = e.target.dataset.stockId;
             axios.post("/Cart/AddOne/" + stockId)
                 .then(res => {
@@ -121,16 +127,17 @@
 
                     var quantity = parseInt(el.innerText);
                     quantity = (quantity + 1);
+                    console.log("Quantity: " + quantity)
                     el.innerText = quantity;  
 
-                    updateTotalStockValue(e, quantity, stockId);
+                    updateTotalStockValue(realValue, quantity, stockId);
                 })
                 .catch(err => {
                     alert(err.error);
                 });
         }
 
-        var removeOneFromCart = function (e) {
+        var removeOneFromCart = function (e, realValue) {
             var stockId = e.target.dataset.stockId;
             axios.post("/Cart/RemoveOne/" + stockId)
                 .then(res => {
@@ -139,9 +146,10 @@
 
                     var quantity = parseInt(el.innerText);
                     quantity = (quantity - 1);
+                    console.log("Quantity: " + quantity)
                     el.innerText = quantity;
 
-                    updateTotalStockValue(e, quantity, stockId);
+                    updateTotalStockValue(realValue, quantity, stockId);
                 })
                 .catch(err => {
                     alert(err.error);
@@ -161,15 +169,16 @@
                 });
             }
 
-        var updateTotalStockValue = function (e, quantity, stockId) {
+        var updateTotalStockValue = function (realValue, quantity, stockId) {
 
-            var stockValue = e.target.dataset.stockValue;
-            console.log(stockValue);
-            var total = (quantity * stockValue).toString();
-            console.log(total);
+            var stockValue = realValue;
+            console.log("StockValue: " + stockValue);
 
-            var e2 = document.getElementById("stockTotal-" + stockId);
-            e2.innerText = total;
+            var total = (quantity * stockValue).toFixed(2);
+            console.log("Total: " + total);
+
+            var totalValue = document.getElementById("stockTotal-" + stockId);
+            totalValue.innerText = "$" + total;
         }
 
     </script>
