@@ -3865,6 +3865,24 @@ fieldset[disabled] .button {
   width: 100%;
 }
 
+.table.is-fullwidth.is-striped th {
+    text-align: center;
+}
+
+.table.is-fullwidth.is-striped td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table.is-fullwidth.is-striped td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table.is-fullwidth.is-striped td.bold {
+    font-weight: bold;
+}
+
 .table.is-hoverable tbody tr:not(.is-selected):hover {
   background-color: #fafafa;
 }

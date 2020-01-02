@@ -19,26 +19,26 @@
                         <table class="table is-fullwidth is-striped">
                             <thead>
                                 <tr>
-                                    <th style="text-align: center;"></th>
-                                    <th style="text-align: center;">Product ID</th>
-                                    <th style="text-align: center;">Product Name</th>
-                                    <th style="text-align: center;">Price</th>
-                                    <th style="text-align: center;">Quantity</th>
-                                    <th style="text-align: center;">Total Value</th>
-                                    <th style="text-align: center;"></th>
+                                    <th></th>
+                                    <th>Product ID</th>
+                                    <th>Product Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total Value</th>
+                                    <th></th>
                                 </tr>
                             </thead> 
                             <tbody>
                                 @foreach (var product in Model.Cart)
                                 {
                                 <tr id="product-@product.StockId">
-                                    <td style="text-align: center; vertical-align: middle;">
+                                    <td>
                                         <img src="~/images/shirts.jpg" class="image is-64x64" />
                                     </td>
-                                    <td style="text-align: center; vertical-align: middle;">@product.StockId</td>
-                                    <td style="text-align: center; vertical-align: middle;">@product.Name</td>
-                                    <td style="text-align: center; vertical-align: middle;">@product.Value</td>
-                                    <td style="text-align: center; vertical-align: middle;">
+                                    <td>@product.StockId</td>
+                                    <td>@product.Name</td>
+                                    <td>@product.Value</td>
+                                    <td>
                                         <div class="columns has-text-centered is-mobile is-multiline">
                                             <div class="column is-4">
                                                 <button class="button" type="button"
@@ -61,8 +61,8 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td id="stockTotal-@product.StockId" style="text-align: center; vertical-align: middle;">@product.TotalValue</td>
-                                    <td style="text-align: center; vertical-align: middle;">
+                                    <td id="stockTotal-@product.StockId">@product.TotalValue</td>
+                                    <td>
                                         <button class="button is-danger fa fa-trash" type="button"
                                                 onclick="removeAllFromCart(event)"
                                                 data-stock-id="@product.StockId"></button>
@@ -76,8 +76,8 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td style="text-align: center; vertical-align: middle;">Sub-Total</td>
-                                    <td style="text-align: center; vertical-align: middle;"><vc:cart view="Small"></vc:cart></td>
+                                    <td>Sub-Total</td>
+                                    <td><vc:cart view="Small"></vc:cart></td>
                                     <td></td>
                                 </tr>
                                 <tr>
@@ -85,8 +85,8 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td style="text-align: center; vertical-align: middle;">Shipping</td>
-                                    <td style="text-align: center; vertical-align: middle;">???</td>
+                                    <td>Shipping</td>
+                                    <td>???</td>
                                     <td></td>
                                 </tr>
                                 <tr>
@@ -94,8 +94,8 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td style="font-weight: bold; text-align: center; vertical-align: middle;">Total</td>
-                                    <td style="font-weight: bold; text-align: center; vertical-align: middle;">???</td>
+                                    <td class="bold">Total</td>
+                                    <td class="bold">???</td>
                                     <td></td>
                                 </tr>
                             </tfoot>
