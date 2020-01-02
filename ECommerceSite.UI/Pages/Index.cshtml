@@ -25,12 +25,32 @@
             @{
                 foreach (var p in Model.Products)
                 {
+                    string cssClass = "";
+                    string message = "";
+                    string aClass = "";
+
+                    if (p.StockCount == 0)
+                    {
+                        cssClass = "is-danger";
+                        message = "Out of Stock";                       
+                        aClass = "cardDisabled";
+                    }
+                    else if (p.StockCount > 0 && p.StockCount <= 10)
+                    {
+                        cssClass = "is-warning";
+                        message = "Low on Stock";
+                        aClass = "";                       
+                    }
                     <div class="column is-one-third-desktop is-4-tablet is-6-mobile">
-                        <a asp-page="Product" asp-route-name="@p.Name.Replace(" ", "-")">
+                        <a asp-page="Product" asp-route-name="@p.Name.Replace(" ", "-")" class="@aClass">
                             <div class="card large">
                                 <div class="card-image">
                                     <figure class="image">
                                         <img src="~/images/shirts.jpg" />
+                                        @if (p.StockCount <= 10)
+                                        {
+                                            <div class="overlay @cssClass"><p class="title is-4">@message</p></div>
+                                        }
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -43,28 +63,6 @@
                                     <div class="content">
                                         @p.Description
                                     </div>
-                                    @{
-                                        string cssClass = "";
-                                        string message = "";
-
-                                        if (p.StockCount == 0)
-                                        {
-                                            cssClass = "is-danger";
-                                            message = "Out of Stock";
-
-                                        }
-                                        else if (p.StockCount <= 10)
-                                        {
-                                            cssClass = "is-warning";
-                                            message = "Low on Stock";
-                                        }
-                                    }
-                                    @if (p.StockCount <= 10)
-                                    {
-                                        <div class="notification is-paddingless has-text-centered @cssClass">
-                                            @message
-                                        </div>
-                                    }
                                 </div>
                             </div>
                         </a>

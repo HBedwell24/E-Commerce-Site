@@ -6,6 +6,12 @@
     overflow: hidden
 }
 
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5;
+}
+
 .card.large {
     height: 600px;
     -webkit-backface-visibility: hidden;
@@ -126,4 +132,35 @@
 
 ::selection {
     background-color: #DEF4FF
+}
+
+.cardDisabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.cardDisabled .card .card-content p {
+    color: gray !important;
+}
+
+.overlay.is-warning {
+    position: absolute;
+    bottom: 0;
+    background: #ffdd57;
+    color: white;
+    width: 100%;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.overlay.is-danger {
+    position: absolute;
+    bottom: 0;
+    background: #f14668;
+    color: white;
+    width: 100%;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
 }
