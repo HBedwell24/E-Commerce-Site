@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using ECommerceSite.Application.CreateProducts;
 using ECommerceSite.Application.Products;
 using ECommerceSite.Database;

@@ -35,16 +35,35 @@ namespace ECommerceSite.UI
 
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
-                options.Password.RequireDigit = false;
+                // Password settings.
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
                 options.Password.RequiredLength = 8;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
+                options.Password.RequiredUniqueChars = 1;
+
+                // Lockout settings.
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+
+                // User settings.
+                options.User.AllowedUserNameCharacters =
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = false;
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.ConfigureApplicationCookie(options =>
             {
+                // Cookie settings
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+
                 options.LoginPath = "/Accounts/Login";
+                options.AccessDeniedPath = "/Admin/AccessDenied";
+                options.SlidingExpiration = true;
             });
 
             services.AddAuthorization(options =>
@@ -52,24 +71,21 @@ namespace ECommerceSite.UI
                 options.AddPolicy("Admin", policy => policy.RequireClaim("Role", "Admin"));
                 //options.AddPolicy("Manager", policy => policy.RequireClaim("Role", "Manager"));
                 options.AddPolicy("Manager", policy => policy
-                    .RequireAssertion(context =>
-                        context.User.HasClaim("Role", "Manager")
+                    .RequireAssertion(context => context.User.HasClaim("Role", "Manager")
                         || context.User.HasClaim("Role", "Admin")));
             });
 
-            services
-                .AddMvc()
-                .AddRazorPagesOptions(options =>
-                {
-                    options.Conventions.AuthorizeFolder("/Admin");
-                    options.Conventions.AuthorizePage("/Admin/ConfigureUsers", "Admin");
-                })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().AddRazorPagesOptions(options =>
+            {
+                options.Conventions.AuthorizeFolder("/Admin");
+                options.Conventions.AuthorizePage("/Admin/ConfigureUsers", "Admin");
+            })
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddSession(options =>
             {
                 options.Cookie.Name = "Cart";
-                options.Cookie.MaxAge = TimeSpan.FromMinutes(20);
+                options.Cookie.MaxAge = TimeSpan.FromMinutes(30);
             });
 
             StripeConfiguration.ApiKey = _config.GetSection("Stripe")["SecretKey"];
@@ -83,6 +99,7 @@ namespace ECommerceSite.UI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {
