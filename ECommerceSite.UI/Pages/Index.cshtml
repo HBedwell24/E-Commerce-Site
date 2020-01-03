@@ -12,32 +12,29 @@
 
     <div class="section">
         <div class="box">
-            <div class="field has-addons">
+            <form class="field has-addons">
                 <div class="control is-expanded">
-                    <input class="input has-text-centered" type="search" placeholder="Find a Product">
+                    <input asp-for="SearchString" autocomplete="off" type="text" class="input has-text-centered" placeholder="Find a Product">
                 </div>
                 <div class="control">
-                    <a class="button is-info">Search</a>
+                    <input type="submit" value="Search" class="button is-info">
                 </div>
-            </div>
+            </form>
         </div>
         <div class="columns is-multiline is-mobile">
             @{
                 foreach (var p in Model.Products)
                 {
-                    string cssClass = "";
                     string message = "";
                     string aClass = "";
 
                     if (p.StockCount == 0)
                     {
-                        cssClass = "is-danger";
                         message = "Out of Stock";                       
                         aClass = "cardDisabled";
                     }
                     else if (p.StockCount > 0 && p.StockCount <= 10)
                     {
-                        cssClass = "is-warning";
                         message = "Low on Stock";
                         aClass = "";                       
                     }
@@ -47,21 +44,25 @@
                                 <div class="card-image">
                                     <figure class="image">
                                         <img src="~/images/shirts.jpg" />
-                                        @if (p.StockCount <= 10)
-                                        {
-                                            <div class="overlay @cssClass"><p class="title is-4">@message</p></div>
-                                        }
+                                        
                                     </figure>
                                 </div>
                                 <div class="card-content">
                                     <div class="media">
                                         <div class="media-content">
                                             <p class="title is-4">@p.Name</p>
-                                            <p class="subtitle is-6">@p.Value</p>
+
+                                            @if(p.StockCount == 0) {
+                                                <p class="subtitle is-6">@message</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="subtitle is-6">Available Now: @p.Value</p>
+                                            }
                                         </div>
                                     </div>
                                     <div class="content">
-                                        @p.Description
+                                        <p>@p.Description</p>
                                     </div>
                                 </div>
                             </div>

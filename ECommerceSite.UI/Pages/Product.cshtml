@@ -59,14 +59,10 @@
                                                 <input class="input" asp-for="CartViewModel.Quantity" value="1" />
                                             </div>
                                             @foreach (var stock in Model.Product.Stock)
-                                            {
-                                                if (stock.Quantity <= 10)
-                                                {
-                                                    <p class="help is-danger is-hidden low-stock" id="low-stock-@stock.Id">
-                                                        @(stock.Quantity == 0 ? "Out of Stock" : $"{stock.Quantity} Left")
-                                                    </p>
-                                                }
-
+                                            {                                               
+                                                <p class="help is-danger is-hidden low-stock" id="low-stock-@stock.Id">
+                                                    @($"{stock.Quantity} Left")
+                                                </p>                                  
                                             }
                                         </div>
                                     </div>

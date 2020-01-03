@@ -140,14 +140,19 @@
 }
 
 .cardDisabled .card .card-content p {
-    color: gray !important;
+    opacity: 0.5;
+}
+
+.cardDisabled .card img {
+    opacity: 0.5;
 }
 
 .overlay.is-warning {
     position: absolute;
-    bottom: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: #ffdd57;
-    color: white;
     width: 100%;
     padding: 20px;
     text-align: center;
@@ -155,9 +160,11 @@
 
 .overlay.is-danger {
     position: absolute;
-    bottom: 0;
-    background: #f14668;
-    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000000;
+    opacity: 0.5;
     width: 100%;
     padding: 20px;
     text-align: center;
