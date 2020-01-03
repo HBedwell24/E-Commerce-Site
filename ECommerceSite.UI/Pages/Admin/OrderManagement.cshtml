@@ -20,11 +20,11 @@
     </div>
     <div v-else>
         <p>
-            <button @@click="exitOrder()">Exit</button>
+            <button class="button" @@click="exitOrder()">Exit</button>
         </p>
         <p class="title">{{selectedOrder.orderRef}}</p>
         <p class="subtitle">{{selectedOrder.email}}</p>
-        <button @@click="updateOrder()">Process</button>
+        <button class="button is-success" @@click="updateOrder()">Process</button>
     </div>
 </div>
 

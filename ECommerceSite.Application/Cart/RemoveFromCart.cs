@@ -44,9 +44,6 @@ namespace ECommerceSite.Application.Cart
             }
             cartList.Find(x => x.StockId == request.StockId).Quantity -= request.Quantity;
 
-            stringObject = JsonConvert.SerializeObject(cartList);
-            _session.SetString("cart", stringObject);
-
             var stockOnHold = _ctx.StocksOnHold
                 .FirstOrDefault(x => x.StockId == request.StockId && x.SessionId == _session.Id);
 
@@ -56,12 +53,18 @@ namespace ECommerceSite.Application.Cart
             {
                 stock.Quantity += stockOnHold.Quantity;
                 stockOnHold.Quantity = 0;
+
+                var itemToRemove = cartList.SingleOrDefault(x => x.StockId == request.StockId);
+                cartList.Remove(itemToRemove);
             }
             else
             {
                 stock.Quantity += request.Quantity;
                 stockOnHold.Quantity -= request.Quantity;
             }
+
+            stringObject = JsonConvert.SerializeObject(cartList);
+            _session.SetString("cart", stringObject);
 
             if (stockOnHold.Quantity <= 0)
             {

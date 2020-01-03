@@ -26,7 +26,7 @@ namespace ECommerceSite.UI.Pages
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
 
-        public async Task OnGetAsync()
+        public void OnGet()
         {
             var products = new GetProducts(_ctx).Do();
             if (!string.IsNullOrEmpty(SearchString))
