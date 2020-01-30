@@ -58,7 +58,6 @@ C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\bin\Debug\netcoreapp2.
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\ECommerceSite.UI.TagHelpers.input.cache
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\ECommerceSite.UI.TagHelpers.output.cache
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\ECommerceSite.UI.RazorCoreGenerate.cache
-C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\About.g.cshtml.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\Index.g.cshtml.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\Stock.g.cshtml.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\_AdminLayout.g.cshtml.cs
@@ -88,4 +87,4 @@ C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Accounts\Login.g.cshtml.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\ConfigureUsers.g.cshtml.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\OrderManagement.g.cshtml.cs
-C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Accounts\AccessDenied.g.cshtml.cs
+C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Browse.g.cshtml.cs
