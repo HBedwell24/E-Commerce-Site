@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Browse";
 }
-<header id="header" id="home">
+<header id="header">
     <div class="container">
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
@@ -11,8 +11,11 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="/">Go Back To Main</a></li>
-                    <li><a href="#about">Cart</a></li>
+                    <li>
+                        <a class="navbar-item" asp-page="/Cart">
+                            Cart: <vc:cart view="Small"></vc:cart>
+                        </a>
+                    </li>
                     <li class="menu-has-children">
                         <a href="">Account</a>
                         @if (User.Identity.IsAuthenticated)
@@ -35,114 +38,56 @@
     </div>
 </header><!-- #header -->
 
-<section class="banner-area" id="home">
-    <div class="container">
-        <div class="row fullscreen d-flex align-items-center justify-content-center">
-            <div class="banner-content col-lg-10">
-                <h5 class="text-white text-uppercase">Browse Our Wares</h5>
-                <h1>
-                    Products
-                </h1>
-                <a asp-page="/Browse" class="primary-btn text-uppercase">Buy Now</a>
-            </div>
-        </div>
-    </div>
-</section>
+<div class="container h-100">
+    
+</div>
 
-<section class="video-sec-area section-gap" id="about">
+<section class="section-gap" style="background: -moz-linear-gradient(0deg, #235ee7 0%, #4ae7fa 100%);
+    background: -webkit-linear-gradient(0deg, #235ee7 0%, #4ae7fa 100%);
+    background: -ms-linear-gradient(0deg, #235ee7 0%, #4ae7fa 100%);">
     <div class="container">
-        @*<div class="box">
-                <form class="field has-addons">
-                    <div class="control is-expanded">
-                        <input asp-for="SearchString" autocomplete="off" type="search" class="input has-text-centered" placeholder="Find a Product">
-                    </div>
-                    <div class="control">
-                        <input type="submit" value="Search" class="button is-info">
-                    </div>
-                </form>
-            </div>*@
-        <div class="card-deck">
+        <div class="d-flex justify-content-center h-100 p-b-11">
+            <form class="searchbar">
+                <input asp-for="SearchString" autocomplete="off" class="search_input" type="search" placeholder="Find a Product">
+                <button type="submit" value="Search" class="search_icon no-style"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div class="card-columns">
             @{
                 foreach (var p in Model.Products)
                 {
                     string message = "";
                     string aClass = "";
+                    bool flag = false;
 
                     if (p.StockCount == 0)
                     {
                         message = "Out of Stock";
                         aClass = "cardDisabled";
+                        flag = true;
                     }
                     else if (p.StockCount > 0 && p.StockCount <= 10)
                     {
                         message = "Low on Stock";
                         aClass = "";
+                        flag = true;
                     }
-                    <a asp-page="Product" asp-route-name="@p.Name.Replace(" ", "-")" class="noStyle">
-                        <div class="card">
-                            <img src="~/images/shirts.jpg" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">@p.Name</h5>
-                                <p class="card-text">@p.Description</p>
-                            </div>
+                    <a class="card mb-4 @aClass" asp-page="Product" asp-route-name="@p.Name.Replace(" ", "-")">
+                        <img src="~/images/shirts.jpg" class="card-img-top img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title">@p.Name</h5>
+                            <p class="card-text"><small class="text-muted">@p.Value</small></p>
+                            <p class="card-text">@p.Description</p>
+                        </div>
+                        @if (flag)
+                        {
                             <div class="card-footer">
                                 <small class="text-muted">@message</small>
                             </div>
-                        </div>
+                        }
                     </a>
                 }
             }
         </div>
-        @*<div class="columns is-multiline is-mobile">
-                @{
-                    foreach (var p in Model.Products)
-                    {
-                        string message = "";
-                        string aClass = "";
-
-                        if (p.StockCount == 0)
-                        {
-                            message = "Out of Stock";
-                            aClass = "cardDisabled";
-                        }
-                        else if (p.StockCount > 0 && p.StockCount <= 10)
-                        {
-                            message = "Low on Stock";
-                            aClass = "";
-                        }
-                        <div class="column is-one-third-desktop is-4-tablet is-6-mobile">
-                            <a asp-page="Product" asp-route-name="@p.Name.Replace(" ", "-")" class="@aClass">
-                                <div class="card large">
-                                    <div class="card-image">
-                                        <figure class="image">
-                                            <img src="~/images/shirts.jpg" />
-
-                                        </figure>
-                                    </div>
-                                    <div class="card-content">
-                                        <div class="media">
-                                            <div class="media-content">
-                                                <p class="title is-4">@p.Name</p>
-
-                                                @if (p.StockCount == 0)
-                                                {
-                                                    <p class="subtitle is-6">@message</p>
-                                                }
-                                                else
-                                                {
-                                                    <p class="subtitle is-6">Available Now: @p.Value</p>
-                                                }
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <p>@p.Description</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    }
-                }
-            </div>*@
     </div>
 </section>

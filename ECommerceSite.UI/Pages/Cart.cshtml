@@ -1,6 +1,7 @@
 ﻿@page
 @model CartModel
 @{
+    ViewData["Title"] = "Cart";
 }
 
 <div id="flow">
@@ -110,7 +111,10 @@
                     }
                     <div class="has-text-right">
                         <a asp-page="/Index" class="button is-text">Resume Shopping</a>
-                        <a asp-page="/Checkout/CustomerInformation" class="button is-info">Checkout</a>
+                        @if (!isEmpty)
+                        {
+                            <a asp-page="/Checkout/CustomerInformation" style="visibility=@isEmpty" class="button is-info">Checkout</a>
+                        }
                     </div>
                 </div>
             </div>
@@ -131,7 +135,7 @@
                     var quantity = parseInt(el.innerText);
                     quantity = (quantity + 1);
                     console.log("Quantity: " + quantity)
-                    el.innerText = quantity;  
+                    el.innerText = quantity;
 
                     updateTotalStockValue(realValue, quantity, stockId);
                 })
@@ -165,12 +169,12 @@
                 .then(res => {
                     var id = "product-" + stockId;
                     var el = document.getElementById(id);
-                    el.outerHTML = "";                    
+                    el.outerHTML = "";
                 })
                 .catch(err => {
                     alert(err.error);
                 });
-            }
+        }
 
         var updateTotalStockValue = function (realValue, quantity, stockId) {
 
