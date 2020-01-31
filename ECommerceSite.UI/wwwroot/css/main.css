@@ -2481,8 +2481,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-area {
-  background: url(../images/header-bg.png) center;
-  background-size: cover;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/header-bg.jpg) center;
+    background-size: cover;
 }
 
 @media (max-width: 1199.98px) {
@@ -2598,9 +2598,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .video-right {
-  background: url(~/images/video-bg.png) no-repeat center;
-  background-size: cover;
-  height: 350px;
+    background: url(../images/youtube.jpg) no-repeat center;
+    background-size: cover;
+    height: 350px;
 }
 
 .video-right .overlay-bg {
@@ -2786,8 +2786,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .faq-area {
-  background: url(../images/faq-bg.jpg) center;
-  background-size: cover;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8)), url(../images/faq-bg.jpg) center;
+    background-size: cover;
 }
 
 .faq-left .card {

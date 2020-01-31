@@ -76,7 +76,7 @@ namespace ECommerceSite.UI.Pages.Checkout
                 }).ToList()
             });
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Products");
         }
     }
 }

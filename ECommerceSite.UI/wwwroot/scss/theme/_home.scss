@@ -96,8 +96,8 @@
 //--------- Start Banner Area -------------//
 
 .banner-area {
-	background:url(../img/header-bg.png) center;
-	background-size:cover;
+	background: url(~/wwwroot/images/header-bg.jpg) center;
+	background-size: cover;
 	.fullscreen {
 		@include media-breakpoint-down (lg) {
 			height: 800px !important;
@@ -199,7 +199,7 @@
 }
 
 .video-right{
-	background:url(../img/video-bg.png) no-repeat center;
+	background:url(~/wwwroot/images/youtube.jpg) no-repeat center;
 	background-size:cover;
 	height:350px;
 	.overlay-bg{

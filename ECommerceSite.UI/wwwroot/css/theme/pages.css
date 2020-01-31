@@ -223,7 +223,7 @@
 }
 
 .info-right {
-  background: url(~/images/elements/video-bg.png) no-repeat center;
+  background: url(~/wwwroot/images/youtube.jpg) no-repeat center;
   background-size: cover;
   height: 251px;
 }
