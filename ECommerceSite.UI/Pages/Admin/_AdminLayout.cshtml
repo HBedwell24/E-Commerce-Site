@@ -158,7 +158,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                                <img class="img-profile rounded-circle" src="~/images/user.png">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -259,43 +259,4 @@
     @RenderSection("Scripts", required: false)
 
 </body>
-
-
-    @*<body>
-            <h3 class="title has-text-centered">Admin Panel</h3>
-
-            <div class="container">
-                <div class="columns">
-                    <div class="column is-3">
-                        <div class="menu">
-                            @if ((await authService.AuthorizeAsync(User, "Manager")).Succeeded)
-                            {
-                                <p class="menu-label">Store Menu</p>
-                                <ul class="menu-list">
-                                    <li><a asp-page="/Admin/Index">Products</a></li>
-                                    <li><a asp-page="/Admin/OrderManagement">Orders</a></li>
-                                    <li><a asp-page="/Admin/Stock">Stock</a></li>
-                                </ul>
-                            }
-                            @if ((await authService.AuthorizeAsync(User, "Admin")).Succeeded)
-                            {
-                                <p class="menu-label">Admin Menu</p>
-                                <ul class="menu-list">
-                                    <li><a asp-page="/Admin/ConfigureUsers">Configure Users</a></li>
-                                </ul>
-                            }
-                            <p class="menu-label"></p>
-                            <ul class="menu-list">
-                                <li><a asp-page="/Index">Back to Main</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="column is-9">
-                        @RenderBody()
-                    </div>
-                </div>
-            </div>
-
-            
-        </body>*@
 </html>

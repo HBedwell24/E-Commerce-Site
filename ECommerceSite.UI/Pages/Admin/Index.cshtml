@@ -14,7 +14,6 @@
     </div>
     <div class="card-body">
         <div class="table-responsive" v-if="!editing">
-            <button class="button" @@click="newProduct">Add New Product</button>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
@@ -35,8 +34,8 @@
                     </tr>
                 </tbody>
             </table>
+            <button class="button" @@click="newProduct">Add New Product</button>
         </div>
-
         <div v-else>
             <div class="field">
                 <label class="label">Product Name</label>
@@ -63,7 +62,7 @@
     </div>
 </div>
 
-@section scripts {
+@section scripts{
     <script src="~/js/admin/products.js"></script>
 }
 
