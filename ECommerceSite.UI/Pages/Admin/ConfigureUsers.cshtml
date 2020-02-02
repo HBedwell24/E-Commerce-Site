@@ -1,14 +1,29 @@
 ﻿@page
 @model ConfigureUsersModel
 @{
+    ViewData["Title"] = "Configure Users";
 }
 
-<div id="app" class="container">
-    <input v-model="username" />
-    <button @@click="createUser()">Create</button>
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800 mb-4">Configure Users</h1>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Create Additional Users</h6>
+    </div>
+    <div class="card-body">
+        <div class="field">
+            <label class="label">Username</label>
+            <div class="control">
+                <input class="input" v-model="username" />              
+            </div>
+        </div>
+        <button class="button" @@click="createUser()">Submit</button>
+    </div>
 </div>
 
-@section scripts{
+@section scripts {
     <script src="~/js/admin/users.js"></script>
 }
 

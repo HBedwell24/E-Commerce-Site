@@ -1,26 +1,39 @@
 ﻿@page
 @model IndexModel
 @{
+    ViewData["Title"] = "Products";
 }
 
-    <div id="app" class="container">
-        <div v-if="!editing">
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800 mb-4">Products</h1>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Create/Edit Products</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive" v-if="!editing">
             <button class="button" @@click="newProduct">Add New Product</button>
-            <table class="table">
-                <tr>
-                    <th>Id</th>
-                    <th>Product</th>
-                    <th>Value</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr v-for="(product, index) in products">
-                    <td>{{product.id}}</td>
-                    <td>{{product.name}}</td>
-                    <td>{{product.value}}</td>
-                    <td><a @@click="editProduct(product.id, index)">Edit</a></td>
-                    <td><a @@click="deleteProduct(product.id, index)">Remove</a></td>
-                </tr>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Product Id</th>
+                        <th>Product Name</th>
+                        <th>Value</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(product, index) in products">
+                        <td>{{product.id}}</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.value}}</td>
+                        <td><a @@click="editProduct(product.id, index)">Edit</a></td>
+                        <td><a @@click="deleteProduct(product.id, index)">Remove</a></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
 
@@ -48,7 +61,9 @@
             <button class="button" @@click="cancel">Cancel</button>
         </div>
     </div>
+</div>
 
-@section scripts{ 
+@section scripts {
     <script src="~/js/admin/products.js"></script>
 }
+

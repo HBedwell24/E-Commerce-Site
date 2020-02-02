@@ -1,32 +1,48 @@
 ﻿@page
 @model OrderManagementModel
 @{
+    ViewData["Title"] = "Orders";
 }
 
-<div id="app">
-    <div v-if="selectedOrder == null">
-        <div class="tabs is-centered">
-            <ul>
-                <li v-bind:class="{'is-active': status === 0}"><a @@click="status = 0">Pending</a></li>
-                <li v-bind:class="{'is-active': status === 1}"><a @@click="status = 1">Packed</a></li>
-                <li v-bind:class="{'is-active': status === 2}"><a @@click="status = 2">Shipped</a></li>
-            </ul>
-        </div>
-        <div v-if="orders.length > 0">
-            <p v-for="order in orders">
-                <a @@click="selectOrder(order.id)">{{order.orderRef}} - {{order.email}}</a>
-            </p>
-        </div>
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800 mb-4">Orders</h1>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">View/Edit Order Status</h6>
     </div>
-    <div v-else>
-        <p>
-            <button class="button" @@click="exitOrder()">Exit</button>
-        </p>
-        <p class="title">{{selectedOrder.orderRef}}</p>
-        <p class="subtitle">{{selectedOrder.email}}</p>
-        <button class="button is-success" @@click="updateOrder()">Process</button>
+    <div class="card-body">
+        <div class="table-responsive">
+            <div id="app">
+                <div v-if="selectedOrder == null">
+                    <div class="tabs is-centered">
+                        <ul>
+                            <li v-bind:class="{'is-active': status === 0}"><a @@click="status = 0">Pending</a></li>
+                            <li v-bind:class="{'is-active': status === 1}"><a @@click="status = 1">Packed</a></li>
+                            <li v-bind:class="{'is-active': status === 2}"><a @@click="status = 2">Shipped</a></li>
+                        </ul>
+                    </div>
+                    <div v-if="orders.length > 0">
+                        <p v-for="order in orders">
+                            <a @@click="selectOrder(order.id)">{{order.orderRef}} - {{order.email}}</a>
+                        </p>
+                    </div>
+                </div>
+                <div v-else>
+                    <p>
+                        <button class="button" @@click="exitOrder()">Exit</button>
+                    </p>
+                    <p class="title">{{selectedOrder.orderRef}}</p>
+                    <p class="subtitle">{{selectedOrder.email}}</p>
+                    <button class="button is-success" @@click="updateOrder()">Process</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
 
 @section scripts {
     <script src="~/js/admin/orders.js"></script>

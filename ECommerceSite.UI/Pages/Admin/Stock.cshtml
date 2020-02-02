@@ -1,46 +1,62 @@
 ﻿@page
 @model StockModel
 @{
+    ViewData["Title"] = "Stock";
 }
 
-<div id="app">
-    <div class="columns">
-        <div class="column is-3">
-            <table class="table">
-                <tr v-for="product in products" @@click="selectProduct(product)">
-                    <td>{{product.id}}</td>
-                </tr>
-            </table>
-        </div>
-        <div class="column is-6" v-if="selectedProduct">
-            <table class="table">
-                <tr v-for="(stock, index) in selectedProduct.stock">
-                    <td><input class="input" v-model="stock.description" /></td>
-                    <td><input class="input" v-model="stock.quantity" /></td>
-                    <td><a class="has-text-danger" @@click="deleteStock(stock.id, index)">Delete</a></td>
-                </tr>
-            </table>
-            <a class="button is-warning" @@click="updateStock">
-                Update Products
-            </a>
-        </div>
-        <div class="column is-3" v-if="selectedProduct">
-            <h2 class="title">New Stock</h2>
-            <div class="field">
-                <div class="control">
-                    <input class="input" v-model="newStock.description" />
-                </div>
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800 mb-4">Orders</h1>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Browse/Update Product Stock</h6>
+    </div>
+    <div class="card-body">
+        
+            <div id="app">
+                <div class="columns">
+                    <div class="column is-3">
+                        <table class="table">
+                            <tr v-for="product in products" @@click="selectProduct(product)">
+                                <td>{{product.id}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="column is-6" v-if="selectedProduct">
+                        <table class="table">
+                            <tr v-for="(stock, index) in selectedProduct.stock">
+                                <td><input class="input" v-model="stock.description" /></td>
+                                <td><input class="input" v-model="stock.quantity" /></td>
+                                <td><a class="has-text-danger" @@click="deleteStock(stock.id, index)">Delete</a></td>
+                            </tr>
+                        </table>
+                        <a class="button is-warning" @@click="updateStock">
+                            Update Products
+                        </a>
+                    </div>
+                    <div class="column is-3" v-if="selectedProduct">
+                        <h2 class="title">New Stock</h2>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" v-model="newStock.description" />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" v-model="newStock.quantity" />
+                            </div>
+                        </div>
+                        <a class="button is-success" @@click="addStock">Add</a>
+                    </div>
+                
             </div>
-            <div class="field">
-                <div class="control">
-                    <input class="input" v-model="newStock.quantity" />
-                </div>
-            </div>
-            <a class="button is-success" @@click="addStock">Add</a>
         </div>
     </div>
 </div>
 
-@section  scripts {
+
+
+@section scripts {
     <script src="~/js/admin/stock.js"></script>
 }

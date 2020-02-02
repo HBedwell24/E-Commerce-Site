@@ -24,4 +24,15 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\bulma-0.8.0\css\" />
+    <Folder Include="wwwroot\lib\bulma-0.8.0\sass\base\" />
+    <Folder Include="wwwroot\lib\bulma-0.8.0\sass\components\" />
+    <Folder Include="wwwroot\lib\bulma-0.8.0\sass\elements\" />
+    <Folder Include="wwwroot\lib\bulma-0.8.0\sass\form\" />
+    <Folder Include="wwwroot\lib\bulma-0.8.0\sass\grid\" />
+    <Folder Include="wwwroot\lib\bulma-0.8.0\sass\layout\" />
+    <Folder Include="wwwroot\lib\bulma-0.8.0\sass\utilities\" />
+  </ItemGroup>
+
 </Project>
