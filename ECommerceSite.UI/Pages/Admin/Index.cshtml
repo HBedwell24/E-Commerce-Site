@@ -5,7 +5,10 @@
 }
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800 mb-4">Products</h1>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Products</h1>
+    <button @@click="newProduct" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Create Product</button>
+</div>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -14,14 +17,13 @@
     </div>
     <div class="card-body">
         <div class="table-responsive" v-if="!editing">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered stripe" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Product Id</th>
+                        <th>Product ID</th>
                         <th>Product Name</th>
-                        <th>Value</th>
-                        <th></th>
-                        <th></th>
+                        <th>Product Value</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,12 +31,17 @@
                         <td>{{product.id}}</td>
                         <td>{{product.name}}</td>
                         <td>{{product.value}}</td>
-                        <td><a @@click="editProduct(product.id, index)">Edit</a></td>
-                        <td><a @@click="deleteProduct(product.id, index)">Remove</a></td>
+                        <td>
+                            <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" @@click="editProduct(product.id, index)">
+                                <i class="fas fa-edit fa-sm text-white-50" aria-hidden="true"></i> Edit
+                            </button>
+                            <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" @@click="deleteProduct(product.id, index)">
+                                <i class="fas fa-trash fa-sm text-white-50" aria-hidden="true"></i> Remove
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
-            <button class="button" @@click="newProduct">Add New Product</button>
         </div>
         <div v-else>
             <div class="field">

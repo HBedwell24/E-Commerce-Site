@@ -380,14 +380,7 @@ code {
   padding: 0.25em 0.5em 0.25em;
 }
 
-hr {
-  background-color: whitesmoke;
-  border: none;
-  display: block;
-  height: 2px;
-  margin: 1.5rem 0;
-}
-
+ 
 img {
   height: auto;
   max-width: 100%;
