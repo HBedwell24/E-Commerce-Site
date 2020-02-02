@@ -3,7 +3,140 @@
 @{
 }
 
-<div class="hero is-fullheight">
+<header id="header">
+    <div class="container">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="/"><img src="~/images/logo.png" width="176" height="33" /></a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li>
+                        <a class="navbar-item" asp-page="/Cart">
+                            Cart: <vc:cart view="Small"></vc:cart>
+                        </a>
+                    </li>
+                    <li class="menu-has-children">
+                        <a href="">Account</a>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <ul>
+                                <li><a asp-page="/admin/index">Go to Admin Panel</a></li>
+                                <li><a asp-controller="account" asp-action="logout">Sign Out</a></li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul>
+                                <li><a asp-page="/accounts/login">Sign In</a></li>
+                            </ul>
+                        }
+                    </li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </div>
+</header><!-- #header -->
+
+<section class="generic-banner relative">
+    <div class="container">
+        <div class="row height align-items-center justify-content-center">
+            <div class="col-lg-10">
+                <div class="generic-banner-content">
+                    <h2 class="text-white">The Generic Page</h2>
+                    <p class="text-white">It won’t be a bigger problem to find one video game lover in your <br> neighbor. Since the introduction of Virtual Game.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+<!-- About Generic Start -->
+<div class="main-wrapper">
+
+    <!-- Start unique-feature Area -->
+    <section class="unique-feature-area section-gap">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-60 col-lg-10">
+                    <div class="title text-center">
+                        <h1 class="mb-10 text-white">Some Features that Made us Unique</h1>
+                        <p>Who are in extremely love with eco friendly system.</p>
+                    </div>
+                </div>
+            </div>        
+            <div class="product-card">
+                <div class="container-fliud">
+                    <div class="wrapper row">
+                        <div class="preview col-md-6">
+
+                            <div class="preview-pic tab-content">
+                                <div class="tab-pane active" id="pic-1"><img src="~/images/bugatti.png" /></div>
+                                <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
+                                <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
+                                <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
+                                <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>
+                            </div>
+                            <ul class="preview-thumbnail nav nav-tabs">
+                                <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                                <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                                <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                                <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                                <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+                            </ul>
+
+                        </div>
+                        <div class="details col-md-6">
+                            <h3 class="product-title">@Model.Product.Name</h3>
+                            <div class="rating">
+                                <div class="stars">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                                <span class="review-no">41 reviews</span>
+                            </div>
+                            <p class="product-description">@Model.Product.Description</p>
+                            <h4 class="price">Available now for <span>@Model.Product.Value</span></h4>
+                            <p class="vote">Please confirm the details of your order below.</p>
+                            <form method="post">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <h5 class="colors">
+                                            colors:                                       
+                                            <select class="custom-select d-block" asp-for="CartViewModel.StockId" onchange="toggleStock(event)" required>
+                                                @foreach (var s in Model.Product.Stock)
+                                                {
+                                                    bool disabled = s.Quantity <= 0;
+                                                    <option value="@s.Id" disabled="@disabled">@s.Description</option>
+                                                }
+                                            </select>                                      
+                                        </h5>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <h5 class="colors">
+                                            quantity:                                           
+                                            <input class="form-control" asp-for="CartViewModel.Quantity" value="1" required />                                         
+                                        </h5>
+                                    </div>        
+                                </div>
+                                
+                                <div class="action">
+                                    <button class="btn btn-primary btn-lg btn-block" type="submit">add to cart</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- End unique-feature Area -->
+
+@*<div class="hero is-fullheight">
     <div class="hero-body">
         <div class="container box">
             <div class="columns">
@@ -53,10 +186,10 @@
                                                 <input class="input" asp-for="CartViewModel.Quantity" value="1" />
                                             </div>
                                             @foreach (var stock in Model.Product.Stock)
-                                            {                                               
+                                            {
                                                 <p class="help is-danger is-hidden low-stock" id="low-stock-@stock.Id">
                                                     @($"{stock.Quantity} Left")
-                                                </p>                                  
+                                                </p>
                                             }
                                         </div>
                                     </div>
@@ -80,7 +213,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 
 <script>
 
