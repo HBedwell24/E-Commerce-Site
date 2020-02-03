@@ -6,6 +6,13 @@
 /* =================================== */
 /*  Basic Style 
 /* =================================== */
+.productDivider hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .product-card img {
     max-width: 100%;
 }
@@ -107,7 +114,6 @@
 }
 
 .product-title, .price, .sizes, .colors {
-    text-transform: UPPERCASE;
     font-weight: bold;
 }
 

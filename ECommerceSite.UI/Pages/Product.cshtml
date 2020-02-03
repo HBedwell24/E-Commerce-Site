@@ -89,23 +89,15 @@
                         <div class="details col-md-6">
                             <h3 class="product-title">@Model.Product.Name</h3>
                             <div class="rating">
-                                <div class="stars">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                                <span class="review-no">41 reviews</span>
+                                <span class="review-no">@Model.Product.Value</span>
                             </div>
                             <p class="product-description">@Model.Product.Description</p>
-                            <h4 class="price">Available now for <span>@Model.Product.Value</span></h4>
-                            <p class="vote">Please confirm the details of your order below.</p>
+                            
                             <form method="post">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <h5 class="colors">
-                                            colors:                                       
+                                            Colors:                                       
                                             <select class="custom-select d-block" asp-for="CartViewModel.StockId" onchange="toggleStock(event)" required>
                                                 @foreach (var s in Model.Product.Stock)
                                                 {
@@ -117,14 +109,14 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <h5 class="colors">
-                                            quantity:                                           
+                                            Quantity:                                           
                                             <input class="form-control" asp-for="CartViewModel.Quantity" value="1" required />                                         
                                         </h5>
                                     </div>        
                                 </div>
                                 
                                 <div class="action">
-                                    <button class="btn btn-primary btn-lg btn-block" type="submit">add to cart</button>
+                                    <button class="btn-primary btn-lg btn-block" type="submit">add to cart</button>
                                 </div>
                             </form>
                         </div>
