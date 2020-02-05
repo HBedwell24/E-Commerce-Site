@@ -7,7 +7,7 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Products</h1>
-    <button @@click="newProduct" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Create Product</button>
+    <button @@click="newProduct" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Create Product</button>
 </div>
 
 <!-- DataTales Example -->
@@ -32,7 +32,7 @@
                         <td>{{product.name}}</td>
                         <td>{{product.value}}</td>
                         <td>
-                            <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" @@click="editProduct(product.id, index)">
+                            <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm" @@click="editProduct(product.id, index)">
                                 <i class="fas fa-edit fa-sm text-white-50" aria-hidden="true"></i> Edit
                             </button>
                             <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" @@click="deleteProduct(product.id, index)">
