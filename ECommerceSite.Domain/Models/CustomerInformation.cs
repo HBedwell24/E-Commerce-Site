@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ECommerceSite.Domain.Models
+﻿namespace ECommerceSite.Domain.Models
 {
     public class CustomerInformation
     {

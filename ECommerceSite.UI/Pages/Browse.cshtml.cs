@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ECommerceSite.Application.CreateProducts;
 using ECommerceSite.Application.Products;
 using ECommerceSite.Database;
 using Microsoft.AspNetCore.Mvc;
@@ -16,9 +15,6 @@ namespace ECommerceSite.UI.Pages
         {
             _ctx = ctx;
         }
-
-        [BindProperty]
-        public CreateProduct.ProductViewModel Product { get; set; }
 
         public IEnumerable<GetProducts.ProductViewModel> Products { get; set; }
 

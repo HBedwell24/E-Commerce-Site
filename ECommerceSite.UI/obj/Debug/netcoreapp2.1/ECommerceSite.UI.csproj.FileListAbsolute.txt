@@ -74,7 +74,6 @@ C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Contact.g.cshtml.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Error.g.cshtml.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Index.g.cshtml.cs
-C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Order.g.cshtml.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Privacy.g.cshtml.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Product.g.cshtml.cs
 C:\Users\bagge\Documents\E-Commerce-Site\ECommerceSite.UI\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_CookieConsentPartial.g.cshtml.cs
