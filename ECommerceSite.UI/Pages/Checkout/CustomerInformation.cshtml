@@ -2,72 +2,162 @@
 @model CustomerInformationModel
 @{
 }
-    <section class="hero is-fullheight">
-        <div class="hero-body">
-            <div class="container box">
-                <div class="columns">
-                    <div class="column is-6">
-                        <p class="title has-text-centered">Billing Information</p>
-                        <form method="post">
-                            <div class="field">
-                                <p class="control">
-                                    <label class="label">First Name*</label>
-                                    <input class="input" asp-for="CustomerInformation.FirstName" />
-                                </p>
-                                <span class="help is-warning" asp-validation-for="CustomerInformation.FirstName"></span>
-                            </div>
-                            <div class="field">
-                                <p class="control">
-                                    <label class="label">Last Name*</label>
-                                    <input class="input" asp-for="CustomerInformation.LastName" />
-                                </p>
-                                <span class="help is-warning" asp-validation-for="CustomerInformation.LastName"></span>
-                            </div>
-                            <div class="field">
-                                <p class="control">
-                                    <label class="label">Phone Number*</label>
-                                    <input class="input" asp-for="CustomerInformation.PhoneNumber" />
-                                </p>
-                                <span class="help is-warning" asp-validation-for="CustomerInformation.PhoneNumber"></span>
-                            </div>
-                            <div class="field">
-                                <p class="control">
-                                    <label class="label">Email*</label>
-                                    <input class="input" asp-for="CustomerInformation.Email" />
-                                </p>
-                                <span class="help is-warning" asp-validation-for="CustomerInformation.Email"></span>
-                            </div>
-                            <div class="field">
-                                <p class="control">
-                                    <label class="label">Address*</label>
-                                    <input class="input" asp-for="CustomerInformation.Address1" />
-                                </p>
-                                <span class="help is-warning" asp-validation-for="CustomerInformation.Address1"></span>
-                            </div>
-                            <div class="field">
-                                <p class="control">
-                                    <label class="label">City*</label>
-                                    <input class="input" asp-for="CustomerInformation.City" />
-                                </p>
-                                <span class="help is-warning" asp-validation-for="CustomerInformation.City"></span>
-                            </div>
-                            <div class="field">
-                                <p class="control">
-                                    <label class="label">Postal Code*</label>
-                                    <input class="input" asp-for="CustomerInformation.PostCode" />
-                                </p>
-                                <span class="help is-warning" asp-validation-for="CustomerInformation.PostCode"></span>
-                            </div>
-                            <div class="field has-text-centered">
-                                <a asp-page="/Cart" class="button is-text">Go Back to Cart</a>
-                                <button class="button is-info" type="submit">Submit</button>
-                            </div>
-                        </form>
+<header id="header">
+    <div class="container">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="/"><img src="~/images/logo.png" width="176" height="33" /></a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li>
+                        <a class="navbar-item" asp-page="/Cart">
+                            Cart: <vc:cart view="Small"></vc:cart>
+                        </a>
+                    </li>
+                    <li class="menu-has-children">
+                        <a href="">Account</a>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <ul>
+                                <li><a asp-page="/admin/index">Go to Admin Panel</a></li>
+                                <li><a asp-controller="account" asp-action="logout">Sign Out</a></li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul>
+                                <li><a asp-page="/accounts/login">Sign In</a></li>
+                            </ul>
+                        }
+                    </li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </div>
+</header><!-- #header -->
+
+<!-- Start unique-feature Area -->
+<section class="unique-feature-area section-gap">
+    <div class="container">
+        <div class="product-card">
+            <div class="container-fliud">
+                <form method="post">
+                    <h3 class="product-title">Billing Information</h3>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>First Name</label>
+                            <input class="form-control" asp-for="CustomerInformation.FirstName" placeholder="John" required>
+                            <span class="text-danger" asp-validation-for="CustomerInformation.FirstName"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Last Name</label>
+                            <input asp-for="CustomerInformation.LastName" class="form-control" placeholder="Doe" required>
+                            <span class="text-danger" asp-validation-for="CustomerInformation.LastName"></span>
+                        </div>
                     </div>
-                    <div class="column is-6">
-                        <vc:cart view="Default"></vc:cart>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input class="form-control" asp-for="CustomerInformation.PhoneNumber" placeholder="(000) 000-0000" required>
+                        <span class="text-danger" asp-validation-for="CustomerInformation.PhoneNumber"></span>
                     </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" asp-for="CustomerInformation.Email" placeholder="johndoe@gmail.com" required>
+                        <span class="text-danger" asp-validation-for="CustomerInformation.Email"></span>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Address</label>
+                            <input class="form-control" asp-for="CustomerInformation.Address1" required>
+                            <span class="text-danger" asp-validation-for="CustomerInformation.Address1"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>City</label>
+                            <input class="form-control" asp-for="CustomerInformation.City" required>
+                            <span class="text-danger" asp-validation-for="CustomerInformation.City"></span>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>Postal Code</label>
+                            <input class="form-control" asp-for="CustomerInformation.PostCode" required>
+                            <span class="text-danger" asp-validation-for="CustomerInformation.PostCode"></span>
+                        </div>
+                    </div>
+                    <a asp-page="/Cart" class="m-r-6">Go Back to Cart</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End unique-feature Area -->
+
+@*<section class="hero is-fullheight">
+    <div class="hero-body">
+        <div class="container box">
+            <div class="columns">
+                <div class="column is-6">
+                    <p class="title has-text-centered">Billing Information</p>
+                    <form method="post">
+                        <div class="field">
+                            <p class="control">
+                                <label class="label">First Name*</label>
+                                <input class="input" asp-for="CustomerInformation.FirstName" />
+                            </p>
+                            <span class="help is-warning" asp-validation-for="CustomerInformation.FirstName"></span>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <label class="label">Last Name*</label>
+                                <input class="input" asp-for="CustomerInformation.LastName" />
+                            </p>
+                            <span class="help is-warning" asp-validation-for="CustomerInformation.LastName"></span>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <label class="label">Phone Number*</label>
+                                <input class="input" asp-for="CustomerInformation.PhoneNumber" />
+                            </p>
+                            <span class="help is-warning" asp-validation-for="CustomerInformation.PhoneNumber"></span>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <label class="label">Email*</label>
+                                <input class="input" asp-for="CustomerInformation.Email" />
+                            </p>
+                            <span class="help is-warning" asp-validation-for="CustomerInformation.Email"></span>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <label class="label">Address*</label>
+                                <input class="input" asp-for="CustomerInformation.Address1" />
+                            </p>
+                            <span class="help is-warning" asp-validation-for="CustomerInformation.Address1"></span>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <label class="label">City*</label>
+                                <input class="input" asp-for="CustomerInformation.City" />
+                            </p>
+                            <span class="help is-warning" asp-validation-for="CustomerInformation.City"></span>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <label class="label">Postal Code*</label>
+                                <input class="input" asp-for="CustomerInformation.PostCode" />
+                            </p>
+                            <span class="help is-warning" asp-validation-for="CustomerInformation.PostCode"></span>
+                        </div>
+                        <div class="field has-text-centered">
+                            <a asp-page="/Cart" class="button is-text">Go Back to Cart</a>
+                            <button class="button is-info" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="column is-6">
+                    <vc:cart view="Default"></vc:cart>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>*@

@@ -39,148 +39,122 @@
     </div>
 </header><!-- #header -->
 
-<section class="generic-banner relative">
+<section class="unique-feature-area section-gap">
     <div class="container">
-        <div class="row height align-items-center justify-content-center">
-            <div class="col-lg-10">
-                <div class="generic-banner-content">
-                    <h2 class="text-white">The Generic Page</h2>
-                    <p class="text-white">It won’t be a bigger problem to find one video game lover in your <br> neighbor. Since the introduction of Virtual Game.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End banner Area -->
-<!-- About Generic Start -->
-<div class="main-wrapper">
-
-    <!-- Start unique-feature Area -->
-    <section class="unique-feature-area section-gap">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="menu-content pb-60 col-lg-10">
-                    <div class="title text-center">
-                        <h1 class="mb-10 text-white">Some Features that Made us Unique</h1>
-                        <p>Who are in extremely love with eco friendly system.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="container mb-4">
-                    <div class="row">
-                        <div class="col-12">
-                            @{
-                                bool isEmpty = !Model.Cart.Any();
-                                @if (isEmpty)
-                                {
-                                    <p class="subtitle is-6 has-text-centered">Your cart is empty.</p>
-                                }
-                                else
-                                {
-                                <div class="table-responsive">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col"></th>
-                                                <th scope="col">Product ID</th>
-                                                <th scope="col">Product Name</th>
-                                                <th scope="col">Availablity</th>
-                                                <th scope="col" class="text-center">Quantity</th>
-                                                <th scope="col" class="text-right">Price</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach (var product in Model.Cart)
-                                            {
-                                                <tr id="product-@product.StockId">
-                                                    <td>
-                                                        <img src="https://dummyimage.com/50x50/55595c/fff" class="image is-64x64" />
-                                                    </td>
-                                                    <td>@product.StockId</td>
-                                                    <td>@product.Name</td>
-                                                    <td>In Stock</td>
-                                                    <td>
-                                                        <div class="columns has-text-centered is-mobile is-multiline">
-                                                            <div class="column is-4">
-                                                                <button class="button" type="button"
-                                                                        data-stock-id="@product.StockId"
-                                                                        data-value="@product.RealValue"
-                                                                        onclick="removeOneFromCart(event, this.dataset.value)">
-                                                                    -
-                                                                </button>
-                                                            </div>
-                                                            <div class="column is-4 align-self-center" id="stock-@product.StockId">
-                                                                @product.Quantity
-                                                            </div>
-                                                            <div class="column is-4">
-                                                                <button class="button" type="button"
-                                                                        data-stock-id="@product.StockId"
-                                                                        data-value="@product.RealValue"
-                                                                        onclick="addOneToCart(event, this.dataset.value)">
-                                                                    +
-                                                                </button>
-                                                            </div>
+        <div class="product-card">
+            <div class="container mb-4">
+                <div class="row">
+                    <div class="col-12">
+                        @{
+                            bool isEmpty = !Model.Cart.Any();
+                            @if (isEmpty)
+                            {
+                                <p class="subtitle is-6 has-text-centered">Your cart is empty.</p>
+                            }
+                            else
+                            {
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"></th>
+                                            <th scope="col">Product ID</th>
+                                            <th scope="col">Product Name</th>
+                                            <th scope="col">Availablity</th>
+                                            <th scope="col" class="text-center">Quantity</th>
+                                            <th scope="col" class="text-right">Price</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var product in Model.Cart)
+                                        {
+                                            <tr id="product-@product.StockId">
+                                                <td>
+                                                    <img src="https://dummyimage.com/50x50/55595c/fff" class="image is-64x64" />
+                                                </td>
+                                                <td>@product.StockId</td>
+                                                <td>@product.Name</td>
+                                                <td>In Stock</td>
+                                                <td>
+                                                    <div class="columns has-text-centered is-mobile is-multiline">
+                                                        <div class="column is-4">
+                                                            <button class="button" type="button"
+                                                                    data-stock-id="@product.StockId"
+                                                                    data-value="@product.RealValue"
+                                                                    onclick="removeOneFromCart(event, this.dataset.value)">
+                                                                -
+                                                            </button>
                                                         </div>
-                                                    </td>
-                                                    <td id="stockTotal-@product.StockId">@product.TotalValue</td>
-                                                    <td>
-                                                        <button class="button is-danger fa fa-trash" type="button"
-                                                                onclick="removeAllFromCart(event)"
-                                                                data-stock-id="@product.StockId"></button>
-                                                    </td>
-                                                </tr>
-                                            }
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>Sub-Total</td>
-                                                <td class="text-right"><vc:cart view="Small"></vc:cart></td>
+                                                        <div class="column is-4 align-self-center" id="stock-@product.StockId">
+                                                            @product.Quantity
+                                                        </div>
+                                                        <div class="column is-4">
+                                                            <button class="button" type="button"
+                                                                    data-stock-id="@product.StockId"
+                                                                    data-value="@product.RealValue"
+                                                                    onclick="addOneToCart(event, this.dataset.value)">
+                                                                +
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td id="stockTotal-@product.StockId">@product.TotalValue</td>
+                                                <td>
+                                                    <button class="button is-danger fa fa-trash" type="button"
+                                                            onclick="removeAllFromCart(event)"
+                                                            data-stock-id="@product.StockId"></button>
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>Shipping</td>
-                                                <td class="text-right">6,90 €</td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td><strong>Total</strong></td>
-                                                <td class="text-right"><strong>346,90 €</strong></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                }
-                             }
-                        </div>
-                        <div class="col mb-2">
-                            <div class="row">
-                                <div class="col-sm-12  col-md-6">
-                                    <a asp-page="/Browse" class="btn btn-lg btn-block btn-light text-uppercase">Continue Shopping</a>
-                                </div>
-                                <div class="col-sm-12 col-md-6 text-right">
-                                    <a asp-page="/Checkout/CustomerInformation" class="btn btn-lg btn-block btn-success text-uppercase">Checkout</a>
-                                </div>
+                                        }
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Sub-Total</td>
+                                            <td class="text-right"><vc:cart view="Small"></vc:cart></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Shipping</td>
+                                            <td class="text-right">6,90 €</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><strong>Total</strong></td>
+                                            <td class="text-right"><strong>346,90 €</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            }
+                            }
+                    </div>
+                    <div class="col mb-2">
+                        <div class="row">
+                            <div class="col-sm-12  col-md-6">
+                                <a asp-page="/Browse" class="btn btn-lg btn-block btn-light">Continue Shopping</a>
+                            </div>
+                            <div class="col-sm-12 col-md-6 text-right">
+                                <a asp-page="/Checkout/CustomerInformation" class="btn btn-lg btn-block btn-success">Checkout</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 <!-- End unique-feature Area -->
 
 @*<section class="hero is-fullheight">
