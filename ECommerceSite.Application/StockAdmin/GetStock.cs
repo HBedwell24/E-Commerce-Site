@@ -18,7 +18,7 @@ namespace ECommerceSite.Application.StockAdmin
                 .Include(x => x.Stock)
                 .Select(x => new ProductViewModel
                 {
-                    ProductId = x.Id,
+                    Id = x.Id,
                     Description = x.Description,
                     Stock = x.Stock.Select(y => new StockViewModel
                     {
@@ -43,7 +43,7 @@ namespace ECommerceSite.Application.StockAdmin
 
         public class ProductViewModel
         {
-            public int ProductId { get; set; }
+            public int Id { get; set; }
             public string Description { get; set; }
             public IEnumerable<StockViewModel> Stock { get; set; }
         }

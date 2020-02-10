@@ -24,6 +24,11 @@
     </environment>
 </head>
 
+@{ 
+    var rv = ViewContext.RouteData.Values;
+    string page = $"{rv["page"]}".ToLowerInvariant();
+}
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -45,13 +50,14 @@
 
             @if ((await authService.AuthorizeAsync(User, "Manager")).Succeeded)
             {
+
                 <!-- Heading -->
                 <div class="sidebar-heading">
                     Store Menu
                 </div>
 
                 <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item active">
+                <li class="nav-item @(page == "/admin/index" ? "active" : "")">
                     <a class="nav-link" asp-page="/Admin/Index">
                         <i class="fas fa-shopping-cart"></i>
                         <span>Products</span>
@@ -59,7 +65,7 @@
                 </li>
 
                 <!-- Nav Item - Utilities Collapse Menu -->
-                <li class="nav-item">
+                <li class="nav-item @(page == "/admin/ordermanagement" ? "active" : "")">
                     <a class="nav-link" asp-page="/Admin/OrderManagement">
                         <i class="fas fa-paste"></i>
                         <span>Orders</span>
@@ -67,7 +73,7 @@
                 </li>
 
                 <!-- Nav Item - Utilities Collapse Menu -->
-                <li class="nav-item">
+                <li class="nav-item @(page == "/admin/stock" ? "active" : "")">
                     <a class="nav-link" asp-page="/Admin/Stock">
                         <i class="fas fa-pallet"></i>
                         <span>Stock</span>
@@ -86,7 +92,7 @@
                 </div>
 
                 <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
+                <li class="nav-item @(page == "/admin/configureusers" ? "active" : "")">
                     <a class="nav-link collapsed" asp-page="/Admin/ConfigureUsers">
                         <i class="fas fa-users"></i>
                         <span>Configure Users</span>
@@ -233,7 +239,6 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="~/vendor/jquery/jquery.min.js"></script>
-
     <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->

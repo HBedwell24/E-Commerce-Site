@@ -17,7 +17,7 @@ namespace ECommerceSite.UI.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Accounts/Login");
         }
     }
 }
